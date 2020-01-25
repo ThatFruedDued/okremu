@@ -5,7 +5,21 @@
     <title>okrEMU</title>
   </head>
   <body>
-    <img src='https://images-na.ssl-images-amazon.com/images/I/81RdY00vQ4L._AC_SX215_.jpg' onclick="id('13wySMZWq97O2fFWDUHGSCWUb_u-IyJ8U');function id(str){localStorage.setItem('gameid', str);document.location.href = 'https://thatfrueddued.github.io/okremu/emulator.html';}">
-    <img src='https://images-na.ssl-images-amazon.com/images/I/613Py5NEsSL._AC_SY741_.jpg' onclick="id('1u-hzcVepLI0cAy0NygrOtKZn-TafVsCG');function id(str){localStorage.setItem('gameid', str);document.location.href = 'https://thatfrueddued.github.io/okremu/emulator.html';}">
+    <img src='https://images-na.ssl-images-amazon.com/images/I/81RdY00vQ4L._AC_SX215_.jpg' width='32' id='13wySMZWq97O2fFWDUHGSCWUb_u-IyJ8U'>
+    <img src='https://images-na.ssl-images-amazon.com/images/I/613Py5NEsSL._AC_SY741_.jpg' width='32' id='1u-hzcVepLI0cAy0NygrOtKZn-TafVsCG'>
+    <script>
+      var gameVals = [
+        ['13wySMZWq97O2fFWDUHGSCWUb_u-IyJ8U', 'nes'],
+        ['1u-hzcVepLI0cAy0NygrOtKZn-TafVsCG', 'nes']
+      ];
+      gameVals.forEach(setUpListeners);
+      function setUpListeners(item, index){
+        document.getElementById(item[0]).addEventListener("click", function(){
+          localStorage.setItem('gameid', item[0]);
+          localStorage.setItem('gameext', item[1]);
+          document.location.href = 'https://thatfrueddued.github.io/okremu/emulator.html';
+        });
+      }
+    </script>
   </body>
 </html>
