@@ -14,8 +14,8 @@
       </select>
     </div>
     <br>
-    <div id='nes' style='display: block;'></div>
-    <div id='snes' style='display: block;'></div>
+    <div id='nes'></div>
+    <div id='snes'></div>
     <script>
       var gameVals = [
         ['13wySMZWq97O2fFWDUHGSCWUb_u-IyJ8U', 'nes', 'nes', 'https://images-na.ssl-images-amazon.com/images/I/81RdY00vQ4L._AC_SX215_.jpg', 'Super Mario Bros. / Duck Hunt / World Class Track Meet'],
@@ -29,14 +29,17 @@
         ['1iUJ-ZLYAPjqdc51Sgv3Uq-nODzlO5Amd', 'nes', 'nes', 'https://xboxmedia.ign.com/xbox/image/object/006/006015/dragonwarrior_nesboxboxart_160w.jpg', 'Dragon Warrior'],
         ['1Dbs60qDHsirCnjpeV3ABxY9bgfsscbM7', 'nes', 'nes', 'https://xboxmedia.ign.com/xbox/image/object/007/007360/bioncommand_nesboxboxart_160w.jpg', 'Bionic Commando'],
         ['1YkQLBsGerGQGqyXp965bEdA4kc8L_tAl', 'zip', 'snes', 'https://images-na.ssl-images-amazon.com/images/I/71TbLYKMk4L._AC_SX425_.jpg', 'Super Mario World']
-      ];
+      ],
+          divids = ['nes', 'snes'];
+      for(var l = 0; l < divids.length; l++){
+        document.getElementById(divids[l]).style.display = 'block';
+      }
       gameVals.forEach(setUpImgs);
       setInterval(function(){
         document.getElementsByTagName('select')[0].dispatchEvent(new Event('change'));
       }, 0);
       document.getElementById('chooseconsole').addEventListener('change', (e) => {
-        var divids = ['nes', 'snes'],
-            selval = e.target.value;
+        var selval = e.target.value;
         if(selval === '0'){
           for(var i = 0; i < divids.length; i++){
             document.getElementById(divids[i]).style.display = 'block';
