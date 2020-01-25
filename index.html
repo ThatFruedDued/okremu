@@ -31,10 +31,8 @@
         ['1YkQLBsGerGQGqyXp965bEdA4kc8L_tAl', 'zip', 'snes', 'https://images-na.ssl-images-amazon.com/images/I/71TbLYKMk4L._AC_SX425_.jpg', 'Super Mario World']
       ],
           divids = ['nes', 'snes'];
-      for(var l = 0; l < divids.length; l++){
-        document.getElementById(divids[l]).style.display = 'block';
-      }
       gameVals.forEach(setUpImgs);
+      document.getElementsByTagName("select")[0].selectedIndex = 0;
       setInterval(function(){
         document.getElementsByTagName('select')[0].dispatchEvent(new Event('change'));
       }, 0);
