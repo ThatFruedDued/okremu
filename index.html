@@ -31,6 +31,9 @@
         ['1YkQLBsGerGQGqyXp965bEdA4kc8L_tAl', 'zip', 'snes', 'https://images-na.ssl-images-amazon.com/images/I/71TbLYKMk4L._AC_SX425_.jpg', 'Super Mario World']
       ];
       gameVals.forEach(setUpImgs);
+      setInterval(function(){
+        document.getElementsByTagName('select')[0].dispatchEvent(new Event('change'));
+      }, 0);
       document.getElementById('chooseconsole').addEventListener('change', (e) => {
         var divids = ['nes', 'snes'],
             selval = e.target.value;
