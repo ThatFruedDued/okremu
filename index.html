@@ -6,6 +6,14 @@
     <link rel='stylesheet' href='css/styledselect'>
   </head>
   <body>
+    <div class="custom-select" style="width:200px;">
+      <select id='chooseconsole'>
+        <option value="0">All</option>
+        <option value="1">NES</option>
+        <option value="2">SNES</option>
+      </select>
+    </div>
+    <br>
     <div id='nes'></div>
     <div id='snes'></div>
     <script>
@@ -23,6 +31,31 @@
         ['1YkQLBsGerGQGqyXp965bEdA4kc8L_tAl', 'zip', 'snes', 'https://images-na.ssl-images-amazon.com/images/I/71TbLYKMk4L._AC_SX425_.jpg', 'Super Mario World']
       ];
       gameVals.forEach(setUpImgs);
+      document.getElementById('chooseconsole').addEventListener('change', (e) => {
+        var divids = ['nes', 'snes'],
+            selval = e.target.value;
+        if(selval === '0'){
+          for(var i = 0; i < divids.length; i++){
+            document.getElementById(divids[i]).style.display = 'block';
+          }
+        } else if(selval === '1'){
+          for(var i = 0; i < divids.length; i++){
+            if(divids[i] === 'nes'){
+              document.getElementById(divids[i]).style.display = 'block';
+            } else {
+              document.getElementById(divids[i]).style.display = 'none';
+            }
+          }
+        } else if(selval === '2'){
+          for(var i = 0; i < divids.length; i++){
+            if(divids[i] === 'snes'){
+              document.getElementById(divids[i]).style.display = 'block';
+            } else {
+              document.getElementById(divids[i]).style.display = 'none';
+            }
+          }
+        }
+      });
       function setUpImgs(item, index){
         var gameImg = document.createElement('IMG');
         gameImg.id = item[0];
