@@ -31,6 +31,7 @@ for (i = 0; i < x.length; i++) {
               y[k].removeAttribute("class");
             }
             this.setAttribute("class", "same-as-selected");
+            s.dispatchEvent(new Event('change'));
             break;
           }
         }
