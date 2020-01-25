@@ -22,7 +22,6 @@ for (i = 0; i < x.length; i++) {
         var y, i, k, s, h;
         s = this.parentNode.parentNode.getElementsByTagName("select")[0];
         h = this.parentNode.previousSibling;
-        s.dispatchEvent(new Event('change'));
         for (i = 0; i < s.length; i++) {
           if (s.options[i].innerHTML == this.innerHTML) {
             s.selectedIndex = i;
@@ -36,6 +35,7 @@ for (i = 0; i < x.length; i++) {
           }
         }
         h.click();
+        s.dispatchEvent(new Event('change'));
     });
     b.appendChild(c);
   }
