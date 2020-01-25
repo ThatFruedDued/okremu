@@ -11,10 +11,10 @@
         <div class="draghint hidden screen" id="draghint">
             <input type="file" id="chooser" class="chooser"/>
             <div class="dragtext">
-                <h1>drag a game here to play</h1>
+                <h1>Launching...</h1>
             </div>
         </div>
-        <div id="loading" class="message screen"><h1>loading ...</h1></div>
+        <div id="loading" class="message screen"><h1>Loading...</h1></div>
         <div id="error" class="message hidden screen">
             <h1>error!</h1>
             <div id="clear-save" class="hidden">
@@ -58,19 +58,21 @@
         <script src="scr3.js"></script>
         <script>System.import('./index.coffee!')</script>
         <script>
-            async function execution(id){
+            async function execution(id, ext){
                 var blob,
                     fileInput = document.getElementById('chooser');
                 async function setBlobToUrl(url){blob = await fetch(url).then(r => r.blob());}
                 await setBlobToUrl('https://cors-anywhere.herokuapp.com/https://drive.google.com/uc?export=download&id=' + id);
                 const dT = new ClipboardEvent('').clipboardData || new DataTransfer();
-                dT.items.add(new File([blob], 'smb1.nes'));
+                dT.items.add(new File([blob], 'game.' + ext));
                 fileInput.files = dT.files;
                 fileInput.dispatchEvent(new Event('change'));
             }
-            var devid = '13wySMZWq97O2fFWDUHGSCWUb_u-IyJ8U';
-            var id = localStorage.getItem('gameid');
-            execution(id);
+            var devid = '13wySMZWq97O2fFWDUHGSCWUb_u-IyJ8U',
+                devext = 'nes',
+                id = localStorage.getItem('gameid'),
+                extension = localStorage.getItem('gameext');
+            execution(id, extension);
         </script>
     </body>
 </html>
