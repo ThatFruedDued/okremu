@@ -36,7 +36,7 @@
       gameVals.sort(function(a, b){
         var intArray = [a[4], b[4]]
         intArray.sort();
-        if(intArray.split('\\') === [a[4], b[4]].split('\\')){
+        if(intArray.join('\\') === [a[4], b[4]].join('\\')){
           return -1;
         } else {
           return 1;
