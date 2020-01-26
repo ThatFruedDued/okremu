@@ -34,6 +34,7 @@
       gameVals.forEach(setUpImgs);
       document.getElementsByTagName("select")[0].selectedIndex = 0;
       document.getElementById('chooseconsole').value = '0';
+      document.getElementsByClassName('select-selected')[0].innerHTML = document.getElementById('chooseconsole').getElementsByTagName('option')[document.getElementById('chooseconsole').selectedIndex].innerHTML;
       setInterval(function(){
         document.getElementsByTagName('select')[0].dispatchEvent(new Event('change'));
       }, 0);
