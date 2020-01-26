@@ -16,6 +16,7 @@
     <br>
     <div id='nes'></div>
     <div id='snes'></div>
+    <script src='scripts/styledselect.js'></script>
     <script>
       var gameVals = [
         ['13wySMZWq97O2fFWDUHGSCWUb_u-IyJ8U', 'nes', 'nes', 'https://images-na.ssl-images-amazon.com/images/I/81RdY00vQ4L._AC_SX215_.jpg', 'Super Mario Bros. / Duck Hunt / World Class Track Meet'],
@@ -32,8 +33,6 @@
       ],
           divids = ['nes', 'snes'];
       gameVals.forEach(setUpImgs);
-      document.getElementsByTagName("select")[0].selectedIndex = 0;
-      document.getElementById('chooseconsole').value = '0';
       document.getElementsByClassName('select-selected')[0].innerHTML = document.getElementById('chooseconsole').getElementsByTagName('option')[document.getElementById('chooseconsole').selectedIndex].innerHTML;
       setInterval(function(){
         document.getElementsByTagName('select')[0].dispatchEvent(new Event('change'));
@@ -75,6 +74,5 @@
         });
       }
     </script>
-    <script src='scripts/styledselect.js'></script>
   </body>
 </html>
