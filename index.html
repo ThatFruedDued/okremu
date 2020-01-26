@@ -33,7 +33,9 @@
       ],
           divids = ['nes', 'snes'];
       gameVals.forEach(setUpImgs);
-      document.getElementsByClassName('select-selected')[0].innerHTML = document.getElementById('chooseconsole').getElementsByTagName('option')[document.getElementById('chooseconsole').selectedIndex].innerHTML;
+      document.getElementsByClassName('custom-select')[0].onload = function(){
+        document.getElementsByClassName('select-selected')[0].innerHTML = document.getElementById('chooseconsole').getElementsByTagName('option')[document.getElementById('chooseconsole').selectedIndex].innerHTML;
+      };
       setInterval(function(){
         document.getElementsByTagName('select')[0].dispatchEvent(new Event('change'));
       }, 0);
