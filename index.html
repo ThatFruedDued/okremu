@@ -6,15 +6,15 @@
     <link rel='stylesheet' href='css/styledselect.css'>
   </head>
   <body>
-    <div class="custom-select" style="width:200px;">
+    <div class="custom-select" style="width:200px; display: inline-block;">
       <select id='chooseconsole'>
         <option value="0" selected="selected">All</option>
         <option value="1">NES</option>
         <option value="2">SNES</option>
       </select>
     </div>
-    <input type="text" id="search" name="search" placeholder='Search...'>
-    <br>
+    <input type="text" id="search" name="search" placeholder='Search...' style='display: inline-block;'>
+    <br><br>
     <div id='nes'></div>
     <div id='snes'></div>
     <script src='scripts/styledselect.js'></script>
