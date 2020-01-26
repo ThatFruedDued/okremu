@@ -51,12 +51,12 @@
             if(gameVals[i][4].toLowerCase().indexOf(document.getElementById('search').value.toLowerCase()) === -1){
               document.getElementById(gameVals[i][0]).style.display = 'none';
             } else {
-              document.getElementById(gameVals[i][0]).style.display = 'block';
+              document.getElementById(gameVals[i][0]).style.display = 'inline-block';
             }
           }
         } else {
           for(var i = 0; i < gameVals.length; i++){
-            document.getElementById(gameVals[i][0]).style.display = 'block';
+            document.getElementById(gameVals[i][0]).style.display = 'inline-block';
           }
         }
       }, 0);
@@ -64,12 +64,12 @@
         var selval = e.target.value;
         if(selval === '0'){
           for(var i = 0; i < divids.length; i++){
-            document.getElementById(divids[i]).style.display = 'block';
+            document.getElementById(divids[i]).style.display = 'inline-block';
           }
         } else if(selval === '1'){
           for(var i = 0; i < divids.length; i++){
             if(divids[i] === 'nes'){
-              document.getElementById(divids[i]).style.display = 'block';
+              document.getElementById(divids[i]).style.display = 'inline-block';
             } else {
               document.getElementById(divids[i]).style.display = 'none';
             }
@@ -77,7 +77,7 @@
         } else if(selval === '2'){
           for(var i = 0; i < divids.length; i++){
             if(divids[i] === 'snes'){
-              document.getElementById(divids[i]).style.display = 'block';
+              document.getElementById(divids[i]).style.display = 'inline-block';
             } else {
               document.getElementById(divids[i]).style.display = 'none';
             }
