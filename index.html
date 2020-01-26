@@ -33,6 +33,7 @@
           divids = ['nes', 'snes'];
       gameVals.forEach(setUpImgs);
       document.getElementsByTagName("select")[0].selectedIndex = 0;
+      document.getElementById('chooseconsole').value = '0';
       setInterval(function(){
         document.getElementsByTagName('select')[0].dispatchEvent(new Event('change'));
       }, 0);
