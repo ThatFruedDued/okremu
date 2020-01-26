@@ -47,16 +47,16 @@
         document.getElementsByTagName('select')[0].dispatchEvent(new Event('change'));
         document.getElementsByClassName('select-selected')[0].innerHTML = document.getElementById('chooseconsole').getElementsByTagName('option')[document.getElementById('chooseconsole').selectedIndex].innerHTML;
         if(document.getElementById('search').value !== '' && document.getElementById('search').value !== null && document.getElementById('search').value !== undefined){
-          for(var i = 0; i < divids.length; i++){
-            if(divids[i][4].toLowerCase().indexOf(document.getElementById('search').value.toLowerCase()) === -1){
-              document.getElementById(divids[i][0]).style.display === 'none';
+          for(var i = 0; i < gameVals.length; i++){
+            if(gameVals[i][4].toLowerCase().indexOf(document.getElementById('search').value.toLowerCase()) === -1){
+              document.getElementById(gameVals[i][0]).style.display === 'none';
             } else {
-              document.getElementById(divids[i][0]).style.display === 'block';
+              document.getElementById(gameVals[i][0]).style.display === 'block';
             }
           }
         } else {
-          for(var i = 0; i < divids.length; i++){
-            document.getElementById(divids[i][0]).style.display === 'block';
+          for(var i = 0; i < gameVals.length; i++){
+            document.getElementById(gameVals[i][0]).style.display === 'block';
           }
         }
       }, 0);
