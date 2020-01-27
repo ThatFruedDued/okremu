@@ -96,6 +96,7 @@
         gameImg.id = item[0];
         gameImg.src = item[3];
         gameImg.height = '256';
+        gameImg.style.cursor = 'pointer';
         document.getElementById(item[2]).appendChild(gameImg);
         document.getElementById(item[0]).addEventListener("click", function(){
           localStorage.setItem('gameid', item[0]);
