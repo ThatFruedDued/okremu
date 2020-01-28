@@ -135,12 +135,12 @@
         var selval = e.target.value;
         if(selval === '0'){
           for(var i = 0; i < divids.length; i++){
-            document.getElementById(divids[i]).style.display = 'inline-block';
+            document.getElementById(divids[i]).style.display = 'block';
           }
         } else if(selval === '1'){
           for(var i = 0; i < divids.length; i++){
             if(divids[i] === 'nes'){
-              document.getElementById(divids[i]).style.display = 'inline-block';
+              document.getElementById(divids[i]).style.display = 'block';
             } else {
               document.getElementById(divids[i]).style.display = 'none';
             }
@@ -148,7 +148,7 @@
         } else if(selval === '2'){
           for(var i = 0; i < divids.length; i++){
             if(divids[i] === 'snes'){
-              document.getElementById(divids[i]).style.display = 'inline-block';
+              document.getElementById(divids[i]).style.display = 'block';
             } else {
               document.getElementById(divids[i]).style.display = 'none';
             }
@@ -156,7 +156,7 @@
         } else if(selval === '3'){
           for(var i = 0; i < divids.length; i++){
             if(divids[i] === 'gba'){
-              document.getElementById(divids[i]).style.display = 'inline-block';
+              document.getElementById(divids[i]).style.display = 'block';
             } else {
               document.getElementById(divids[i]).style.display = 'none';
             }
