@@ -12,12 +12,14 @@
         <option value="0" selected="selected">All</option>
         <option value="1">NES</option>
         <option value="2">SNES</option>
+        <option value="3">GBA</option>
       </select>
     </div>
     <input type="text" id="search" name="search-okremu" placeholder='Search...' style='display: inline-block;'>
     <br><br>
     <div id='nes'></div>
     <div id='snes'></div>
+    <div id='gba'></div>
     <script src='scripts/styledselect.js'></script>
     <script>
       var gameVals = [
@@ -98,9 +100,10 @@
         ['1Si57vPKbyKMibSLn8zTuSZrBtlWwt_He', 'nes', 'nes', 'https://media.ign.com/games/image/object/007/007276/Rygar_NEScoverboxart_160w.jpg', 'Rygar'],
         ['1UDAXayptOBe1wuwqogqu5c5R6u6iQ9ZL', 'nes', 'nes', 'https://media.ign.com/games/image/object/007/007110/Super-C_NES_USboxart_160w.jpg', 'Super C'],
         ['1YkQLBsGerGQGqyXp965bEdA4kc8L_tAl', 'zip', 'snes', 'https://images-na.ssl-images-amazon.com/images/I/71TbLYKMk4L._AC_SX425_.jpg', 'Super Mario World'],
-        ['1Y8-j7KTFZlyTqw6HN1AE1Y0VnAL7NcRd', 'zip', 'snes', 'https://i.ebayimg.com/images/g/rQ0AAOSw6btXSlph/s-l400.jpg', 'Super Mario Kart']
+        ['1Y8-j7KTFZlyTqw6HN1AE1Y0VnAL7NcRd', 'zip', 'snes', 'https://i.ebayimg.com/images/g/rQ0AAOSw6btXSlph/s-l400.jpg', 'Super Mario Kart'],
+        ['1DTYdEfuUKQn-DSYJmDxZY8eqPYBtWPNp', 'zip', 'gba', 'https://cdn11.bigcommerce.com/s-ymgqt/images/stencil/1280x1280/products/27676/18778/Game-GBAdvance-PokSapph-2__42193.1394740270.jpg?c=2&imbypass=on', 'Pokemon Sapphire Version']
       ],
-          divids = ['nes', 'snes'];
+          divids = ['nes', 'snes', 'gba'];
       gameVals.sort(function(a, b){
         var intArray = [a[4], b[4]]
         intArray.sort();
@@ -145,6 +148,14 @@
         } else if(selval === '2'){
           for(var i = 0; i < divids.length; i++){
             if(divids[i] === 'snes'){
+              document.getElementById(divids[i]).style.display = 'inline-block';
+            } else {
+              document.getElementById(divids[i]).style.display = 'none';
+            }
+          }
+        } else if(selval === '3'){
+          for(var i = 0; i < divids.length; i++){
+            if(divids[i] === 'gba'){
               document.getElementById(divids[i]).style.display = 'inline-block';
             } else {
               document.getElementById(divids[i]).style.display = 'none';
