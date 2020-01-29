@@ -68,10 +68,12 @@
                 fileInput.files = dT.files;
                 fileInput.dispatchEvent(new Event('change'));
             }
-            var devid = '13wySMZWq97O2fFWDUHGSCWUb_u-IyJ8U',
-                devext = 'nes',
-                id = localStorage.getItem('gameid'),
-                extension = localStorage.getItem('gameext');
+            var id = localStorage.getItem('gameid'),
+                extension = localStorage.getItem('gameext'),
+                dev = localStorage.getItem('devdata');
+            if(dev === 'launcher.jsnes'){
+                document.location.href = 'dev/jsnes/jsnes.html';
+            }
             execution(id, extension);
         </script>
     </body>
