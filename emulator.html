@@ -62,7 +62,7 @@
                 var blob,
                     fileInput = document.getElementById('chooser');
                 async function setBlobToUrl(url){blob = await fetch(url).then(r => r.blob());}
-                await setBlobToUrl('https://cors-anywhere.herokuapp.com/https://drive.google.com/uc?export=download&id=' + id);
+                await setBlobToUrl('https://secret-ocean-49799.herokuapp.com/https://drive.google.com/uc?export=download&id=' + id);
                 const dT = new ClipboardEvent('').clipboardData || new DataTransfer();
                 dT.items.add(new File([blob], 'game.' + ext));
                 fileInput.files = dT.files;
