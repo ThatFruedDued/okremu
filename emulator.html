@@ -59,23 +59,24 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
         <script>System.import('./index.coffee!')</script>
         <script>
-            var id = localStorage.getItem('gameid'),
-                extension = localStorage.getItem('gameext'),
-                dev = localStorage.getItem('devdata');
-            const socket = io('https://oemu1fetcher.herokuapp.com');
-            var fileInput = document.getElementById('chooser');
-            socket.emit('fetch', id);
-            socket.on('fetcher', function(blob){
+            async function execution(id, ext){
+                var blob,
+                    fileInput = document.getElementById('chooser');
+                async function setBlobToUrl(url){blob = await fetch(url).then(r => r.blob());}
+                await setBlobToUrl('https://oemu1fetcher.herokuapp.com/https://drive.google.com/uc?export=download&id=' + id);
                 const dT = new ClipboardEvent('').clipboardData || new DataTransfer();
                 dT.items.add(new File([blob], 'game.' + ext));
                 fileInput.files = dT.files;
                 fileInput.dispatchEvent(new Event('change'));
             }
-            
+            var id = localStorage.getItem('gameid'),
+                extension = localStorage.getItem('gameext'),
+                dev = localStorage.getItem('devdata');
+
             if(dev === 'launcher.jsnes'){
                 document.location.href = 'dev/jsnes/jsnes.html';
             }
-            
+            execution(id, extension);
         </script>
     </body>
 </html>
