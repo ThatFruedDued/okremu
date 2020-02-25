@@ -13008,7 +13008,21 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
   window.addEventListener('touchstart', function (e) {
     return e.preventDefault();
   });
-
   window.addEventListener('error', error);
+  var quickBlob;
+  window.addEventListener("keydown", event => {
+    if (event.isComposing || event.keyCode === 229) {
+      return;
+    }
+    if (event.isComposing || event.keyCode === 192) {
+      quickBlob = new Blob([new Uint8Array(retro.core.serialize())], {
+        type: 'application/octet-binary'
+      });
+    }
+    if (event.isComposing || event.keyCode === 49) {
+      
+    }
+  });
+
 });
 //# sourceMappingURL=build.js.map
