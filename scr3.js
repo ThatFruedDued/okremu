@@ -13020,7 +13020,18 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
       });
     }
     if (event.isComposing || event.keyCode === 49) {
-      
+      var file, reader;
+    	file = quickBlob;
+    	if (!file instanceof Blob) {
+        return;
+      }
+      draghint.classList.add('hidden');
+      reader = new FileReader();
+      reader.addEventListener('load', function (event) {
+        retro.core.unserialize(new Uint8Array(reader.result));
+        return window.resume();
+      });
+      return reader.readAsArrayBuffer(file);
     }
   });
 
