@@ -13117,9 +13117,6 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
     if (event.keyCode === parseInt(localStorage.getItem('start'))) {
       onkey(13, 'keyup');
     }
-    window.addEventListener('keydown', keydownlistener);
-    window.addEventListener('keyup', keyuplistener);
-    
     let rebind;
     window.rebind = function() {
       window.removeEventListener('keydown', keydownlistener);
@@ -13132,4 +13129,6 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
     
   };
 });
+window.addEventListener('keydown', window.keydownlistener);
+window.addEventListener('keyup', window.keyuplistener);
 //# sourceMappingURL=build.js.map
