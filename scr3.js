@@ -13015,7 +13015,8 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
     }
   }
   var quickBlob;
-  var keydownlistener = function(event) {
+  var keydownlistener;
+  keydownlistener = function(event) {
     if (event.isComposing || event.keyCode === 229) {
       return;
     }
@@ -13075,7 +13076,8 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
       onkey(13, 'keydown');
     }
   };
-  var keyuplistener = function(event) {
+  var keyuplistener;
+  window.keyuplistener = function(event) {
     if (event.isComposing || event.keyCode === 229) {
       return;
     }
@@ -13116,12 +13118,12 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
       onkey(13, 'keyup');
     }
     window.addEventListener('keydown', keydownlistener);
-    window.addEventListener('keydown', keyuplistener);
+    window.addEventListener('keyup', keyuplistener);
     
     let rebind;
     window.rebind = function() {
       window.removeEventListener('keydown', keydownlistener);
-      window.removeEventListener('keydown', keydownlistener);
+      window.removeEventListener('keyup', keyuplistener);
       this.innerHTML = "Press any key to rebind...";
       for (var indexx = 0; indexx < document.getElementsByTagName('BUTTON').length; indexx++) {
         document.getElementsByTagName('BUTTON')[indexx].disabled = true;
