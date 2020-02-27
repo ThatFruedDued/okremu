@@ -13016,7 +13016,7 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
   }
   var quickBlob;
   let keydownlistener;
-  keydownlistener = function(event) {
+  window.keydownlistener = function(event) {
     if (event.isComposing || event.keyCode === 229) {
       return;
     }
