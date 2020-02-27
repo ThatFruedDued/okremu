@@ -13015,7 +13015,7 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
     }
   }
   var quickBlob;
-  var keydownlistener;
+  let keydownlistener;
   keydownlistener = function(event) {
     if (event.isComposing || event.keyCode === 229) {
       return;
@@ -13076,7 +13076,7 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
       onkey(13, 'keydown');
     }
   };
-  var keyuplistener;
+  let keyuplistener;
   window.keyuplistener = function(event) {
     if (event.isComposing || event.keyCode === 229) {
       return;
