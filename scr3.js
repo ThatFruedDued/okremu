@@ -13129,6 +13129,5 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
     
   };
 });
-window.addEventListener('keydown', window.keydownlistener);
-window.addEventListener('keyup', window.keyuplistener);
+
 //# sourceMappingURL=build.js.map
