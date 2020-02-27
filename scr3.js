@@ -13015,7 +13015,7 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
     }
   }
   var quickBlob;
-  window.addEventListener('keydown', event => {
+  var keydownlistener = function(event) {
     if (event.isComposing || event.keyCode === 229) {
       return;
     }
@@ -13074,8 +13074,8 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
     if (event.keyCode === parseInt(localStorage.getItem('start'))) {
       onkey(13, 'keydown');
     }
-  });
-  window.addEventListener('keyup', event => {
+  };
+  var keyuplistener = function(event) {
     if (event.isComposing || event.keyCode === 229) {
       return;
     }
@@ -13115,6 +13115,19 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
     if (event.keyCode === parseInt(localStorage.getItem('start'))) {
       onkey(13, 'keyup');
     }
-  });
+    window.addEventListener('keydown', keydownlistener);
+    window.addEventListener('keydown', keyuplistener);
+    
+    let rebind;
+    window.rebind = function() {
+      window.removeEventListener('keydown', keydownlistener);
+      window.removeEventListener('keydown', keydownlistener);
+      this.innerHTML = "Press any key to rebind...";
+      for (var indexx = 0; indexx < document.getElementsByTagName('BUTTON').length; indexx++) {
+        document.getElementsByTagName('BUTTON')[indexx].disabled = true;
+      }
+    }
+    
+  };
 });
 //# sourceMappingURL=build.js.map
