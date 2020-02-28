@@ -13149,11 +13149,6 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
       }
       localStorage.setItem(callingButton.id, event.key + '');
     }
-    this.setInterval(function () {
-      if (callingButton !== null) {
-        rebind();
-      }
-    }, 10);
   };
 });
 
