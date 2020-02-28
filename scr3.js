@@ -13013,10 +13013,11 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
     if (localStorage.getItem(validbuttons[lw]) === null){
       localStorage.setItem(validbuttons[lw],defkeys[lw] + '');
     }
-    var key = String.fromCharCode(parseInt(localStorage.getItem(validbuttons[lw])));
-    if (key === ' ') {
-      key = 'space';
+    var keytext = String.fromCharCode(parseInt(localStorage.getItem(validbuttons[lw]))).toLowerCase;
+    if (keytext === ' ') {
+      keytext = 'space';
     }
+    document.getElementById(validbuttons[lw]).innerHTML = keytext;
   }
   var quickBlob;
   let keydownlistener;
@@ -13121,8 +13122,9 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
     if (event.keyCode === parseInt(localStorage.getItem('start'))) {
       onkey(13, 'keyup');
     }
+    let callingButton;
+    window.callingButton = null;
     let rebind;
-    
     window.rebind = function() {
       window.removeEventListener('keydown', keydownlistener);
       window.removeEventListener('keyup', keyuplistener);
