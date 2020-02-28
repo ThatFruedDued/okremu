@@ -66,11 +66,7 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
         <script>System.import('./index.coffee!')</script>
         <script>
-            window.setInterval(function () {
-      if (callingButton !== null) {
-        rebind();
-      }
-    }, 10);
+            
             window.addEventListener('keydown', window.keydownlistener);
 window.addEventListener('keyup', window.keyuplistener);
             async function execution(id, ext){
