@@ -13035,7 +13035,7 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
       reader = new FileReader();
       reader.addEventListener('load', function (event) {
         retro.core.unserialize(new Uint8Array(reader.result));
-        return window.resume();
+        return;
       });
       return reader.readAsArrayBuffer(file);
     }
@@ -13118,15 +13118,28 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
       onkey(13, 'keyup');
     }
     let rebind;
+    
     window.rebind = function() {
       window.removeEventListener('keydown', keydownlistener);
       window.removeEventListener('keyup', keyuplistener);
-      this.innerHTML = "Press any key to rebind...";
+      window.addEventListener('keydown', rebindlistener);
+      callingButton.innerHTML = "Press any key to rebind...";
       for (var indexx = 0; indexx < document.getElementsByTagName('BUTTON').length; indexx++) {
         document.getElementsByTagName('BUTTON')[indexx].disabled = true;
       }
     }
-    
+    let rebindlistener;
+    window.rebindlistener = function(event) {
+      window.addEventListener('keydown', keydownlistener);
+      window.addEventListener('keyup', keyuplistener);
+      window.removeEventListener('keydown', rebindlistener);
+      var keytext = event.key.toLowerCase();
+      if (keytext === ' ') {
+        keytext = 'space';
+      }
+      callingButton.innerHTML = keytext;
+      localStorage.setItem(callingButton.id, event.keyCode + '');
+    }
   };
 });
 
