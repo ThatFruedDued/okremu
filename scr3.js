@@ -13013,6 +13013,10 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
     if (localStorage.getItem(validbuttons[lw]) === null){
       localStorage.setItem(validbuttons[lw],defkeys[lw] + '');
     }
+    var key = String.fromCharCode(parseInt(localStorage.getItem(validbuttons[lw])));
+    if (key === ' ') {
+      key = 'space';
+    }
   }
   var quickBlob;
   let keydownlistener;
