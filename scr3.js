@@ -12762,7 +12762,6 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
 
   error = function (e) {
     loading.classList.add('hidden');
-    alert('Sorry, an error occured. If this happened while loading, you may have a corrupted file');
     draghint.classList.remove('hidden');
     return console.error(e);
   };
