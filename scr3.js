@@ -12703,14 +12703,14 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
 
   retro = null;
 
-  onkey = function (defkeycode, deftype) {
+  onkey = function (defkey, deftype) {
     var base, name, pressed;
-    if (retro.player && settings.keys.hasOwnProperty(defkeycode)) {
+    if (retro.player && settings.keys.hasOwnProperty(defkey)) {
       pressed = deftype === 'keydown';
-      if ((base = retro.player.inputs[0].buttons)[name = settings.keys[defkeycode]] == null) {
+      if ((base = retro.player.inputs[0].buttons)[name = settings.keys[defkey]] == null) {
         base[name] = {};
       }
-      retro.player.inputs[0].buttons[settings.keys[defkeycode]].pressed = pressed;
+      retro.player.inputs[0].buttons[settings.keys[defkey]].pressed = pressed;
       return undefined;
     }
   };
@@ -13007,12 +13007,12 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
   });
   window.addEventListener('error', error);
   var validbuttons = ['a','b','x','y','r','l','left','right','up','down','select','start','qs','ql'];
-  var defkeys = [32,90,88,67,68,83,37,39,38,40,16,13,192,49];
+  var defkeys = [' ','z','x','y','r','l','ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Shift','Enter','`','1'];
   for(var lw = 0; lw < validbuttons.length; lw++){
     if (localStorage.getItem(validbuttons[lw]) === null){
       localStorage.setItem(validbuttons[lw],defkeys[lw] + '');
     }
-    var keytext = String.fromCharCode(parseInt(localStorage.getItem(validbuttons[lw]))).toLowerCase();
+    var keytext = localStorage.getItem(validbuttons[lw]).toLowerCase();
     if (keytext === ' ') {
       keytext = 'space';
     }
@@ -13024,12 +13024,12 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
     if (event.isComposing || event.keyCode === 229) {
       return;
     }
-    if (event.keyCode === parseInt(localStorage.getItem('qs'))) {
+    if (event.key === parseInt(localStorage.getItem('qs'))) {
       quickBlob = new Blob([new Uint8Array(retro.core.serialize())], {
         type: 'application/octet-binary'
       });
     }
-    if (event.keyCode === parseInt(localStorage.getItem('ql'))) {
+    if (event.key === parseInt(localStorage.getItem('ql'))) {
       var file, reader;
     	file = quickBlob;
     	if (!file instanceof Blob) {
@@ -13043,40 +13043,40 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
       });
       return reader.readAsArrayBuffer(file);
     }
-    if (event.keyCode === parseInt(localStorage.getItem('a'))) {
+    if (event.key === parseInt(localStorage.getItem('a'))) {
       onkey(32, 'keydown');
     }
-    if (event.keyCode === parseInt(localStorage.getItem('b'))) {
+    if (event.key === parseInt(localStorage.getItem('b'))) {
       onkey(90, 'keydown');
     }
-    if (event.keyCode === parseInt(localStorage.getItem('x'))) {
+    if (event.key === parseInt(localStorage.getItem('x'))) {
       onkey(88, 'keydown');
     }
-    if (event.keyCode === parseInt(localStorage.getItem('y'))) {
+    if (event.key === parseInt(localStorage.getItem('y'))) {
       onkey(89, 'keydown');
     }
-    if (event.keyCode === parseInt(localStorage.getItem('r'))) {
+    if (event.key === parseInt(localStorage.getItem('r'))) {
       onkey(82, 'keydown');
     }
-    if (event.keyCode === parseInt(localStorage.getItem('l'))) {
+    if (event.key === parseInt(localStorage.getItem('l'))) {
       onkey(76, 'keydown');
     }
-    if (event.keyCode === parseInt(localStorage.getItem('left'))) {
+    if (event.key === parseInt(localStorage.getItem('left'))) {
       onkey(37, 'keydown');
     }
-    if (event.keyCode === parseInt(localStorage.getItem('right'))) {
+    if (event.key === parseInt(localStorage.getItem('right'))) {
       onkey(39, 'keydown');
     }
-    if (event.keyCode === parseInt(localStorage.getItem('up'))) {
+    if (event.key === parseInt(localStorage.getItem('up'))) {
       onkey(38, 'keydown');
     }
-    if (event.keyCode === parseInt(localStorage.getItem('down'))) {
+    if (event.key === parseInt(localStorage.getItem('down'))) {
       onkey(40, 'keydown');
     }
-    if (event.keyCode === parseInt(localStorage.getItem('select'))) {
+    if (event.key === parseInt(localStorage.getItem('select'))) {
       onkey(16, 'keydown');
     }
-    if (event.keyCode === parseInt(localStorage.getItem('start'))) {
+    if (event.key === parseInt(localStorage.getItem('start'))) {
       onkey(13, 'keydown');
     }
   };
@@ -13085,40 +13085,40 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
     if (event.isComposing || event.keyCode === 229) {
       return;
     }
-    if (event.keyCode === parseInt(localStorage.getItem('a'))) {
+    if (event.key === parseInt(localStorage.getItem('a'))) {
       onkey(32, 'keyup');
     }
-    if (event.keyCode === parseInt(localStorage.getItem('b'))) {
+    if (event.key === parseInt(localStorage.getItem('b'))) {
       onkey(90, 'keyup');
     }
-    if (event.keyCode === parseInt(localStorage.getItem('x'))) {
+    if (event.key === parseInt(localStorage.getItem('x'))) {
       onkey(88, 'keyup');
     }
-    if (event.keyCode === parseInt(localStorage.getItem('y'))) {
+    if (event.key === parseInt(localStorage.getItem('y'))) {
       onkey(89, 'keyup');
     }
-    if (event.keyCode === parseInt(localStorage.getItem('r'))) {
+    if (event.key === parseInt(localStorage.getItem('r'))) {
       onkey(82, 'keyup');
     }
-    if (event.keyCode === parseInt(localStorage.getItem('l'))) {
+    if (event.key === parseInt(localStorage.getItem('l'))) {
       onkey(76, 'keyup');
     }
-    if (event.keyCode === parseInt(localStorage.getItem('left'))) {
+    if (event.key === parseInt(localStorage.getItem('left'))) {
       onkey(37, 'keyup');
     }
-    if (event.keyCode === parseInt(localStorage.getItem('right'))) {
+    if (event.key === parseInt(localStorage.getItem('right'))) {
       onkey(39, 'keyup');
     }
-    if (event.keyCode === parseInt(localStorage.getItem('up'))) {
+    if (event.key === parseInt(localStorage.getItem('up'))) {
       onkey(38, 'keyup');
     }
-    if (event.keyCode === parseInt(localStorage.getItem('down'))) {
+    if (event.key === parseInt(localStorage.getItem('down'))) {
       onkey(40, 'keyup');
     }
-    if (event.keyCode === parseInt(localStorage.getItem('select'))) {
+    if (event.key === parseInt(localStorage.getItem('select'))) {
       onkey(16, 'keyup');
     }
-    if (event.keyCode === parseInt(localStorage.getItem('start'))) {
+    if (event.key === parseInt(localStorage.getItem('start'))) {
       onkey(13, 'keyup');
     }
     let callingButton;
@@ -13147,9 +13147,9 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
       for (var indexx = 0; indexx < document.getElementsByTagName('BUTTON').length; indexx++) {
         document.getElementsByTagName('BUTTON')[indexx].disabled = false;
       }
-      localStorage.setItem(callingButton.id, event.keyCode + '');
+      localStorage.setItem(callingButton.id, event.key + '');
     }
-    window.setInterval(function () {
+    this.setInterval(function () {
       if (callingButton !== null) {
         rebind();
       }
