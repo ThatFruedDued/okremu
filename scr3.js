@@ -13013,7 +13013,7 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
     if (localStorage.getItem(validbuttons[lw]) === null){
       localStorage.setItem(validbuttons[lw],defkeys[lw] + '');
     }
-    var keytext = String.fromCharCode(parseInt(localStorage.getItem(validbuttons[lw]))).toLowerCase;
+    var keytext = String.fromCharCode(parseInt(localStorage.getItem(validbuttons[lw]))).toLowerCase();
     if (keytext === ' ') {
       keytext = 'space';
     }
