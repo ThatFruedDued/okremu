@@ -87,6 +87,16 @@ window.addEventListener('keyup', window.keyuplistener);
                 document.location.href = 'dev/jsnes/jsnes.html';
             }
             execution(id, extension);
+            
+            function rebind(){
+      window.removeEventListener('keydown', window.keydownlistener);
+      window.removeEventListener('keyup', window.keyuplistener);
+      window.addEventListener('keydown', window.rebindlistener);
+      callingButton.innerHTML = "Press any key to rebind...";
+      for (var indexx = 0; indexx < document.getElementsByTagName('BUTTON').length; indexx++) {
+        document.getElementsByTagName('BUTTON')[indexx].disabled = true;
+      }
+    }
         </script>
     </body>
 </html>
