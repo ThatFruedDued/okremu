@@ -13125,7 +13125,6 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
     window.callingButton = null;
     let rebind;
     window.rebind = function() {
-      callingButton = null;
       window.removeEventListener('keydown', keydownlistener);
       window.removeEventListener('keyup', keyuplistener);
       window.addEventListener('keydown', rebindlistener);
@@ -13148,6 +13147,7 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
         document.getElementsByTagName('BUTTON')[indexx].disabled = false;
       }
       localStorage.setItem(callingButton.id, event.key + '');
+      callingButton = null;
     }
   };
 });
