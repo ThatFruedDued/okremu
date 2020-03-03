@@ -13123,16 +13123,7 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
     }
     let callingButton;
     window.callingButton = null;
-    let rebind;
-    window.rebind = function() {
-      window.removeEventListener('keydown', keydownlistener);
-      window.removeEventListener('keyup', keyuplistener);
-      window.addEventListener('keydown', rebindlistener);
-      callingButton.innerHTML = "Press any key to rebind...";
-      for (var indexx = 0; indexx < document.getElementsByTagName('BUTTON').length; indexx++) {
-        document.getElementsByTagName('BUTTON')[indexx].disabled = true;
-      }
-    }
+    
     let rebindlistener;
     window.rebindlistener = function(event) {
       window.addEventListener('keydown', keydownlistener);
