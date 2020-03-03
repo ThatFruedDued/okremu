@@ -13124,22 +13124,7 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
     let callingButton;
     window.callingButton = null;
     
-    let rebindlistener;
-    window.rebindlistener = function(event) {
-      window.addEventListener('keydown', keydownlistener);
-      window.addEventListener('keyup', keyuplistener);
-      window.removeEventListener('keydown', rebindlistener);
-      var keytext = event.key.toLowerCase();
-      if (keytext === ' ') {
-        keytext = 'space';
-      }
-      callingButton.innerHTML = keytext;
-      for (var indexx = 0; indexx < document.getElementsByTagName('BUTTON').length; indexx++) {
-        document.getElementsByTagName('BUTTON')[indexx].disabled = false;
-      }
-      localStorage.setItem(callingButton.id, event.key + '');
-      callingButton = null;
-    }
+    
   };
 });
 
