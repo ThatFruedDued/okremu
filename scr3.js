@@ -13024,12 +13024,12 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
     if (event.isComposing || event.keyCode === 229) {
       return;
     }
-    if (event.key === parseInt(localStorage.getItem('qs'))) {
+    if (event.key === localStorage.getItem('qs')) {
       quickBlob = new Blob([new Uint8Array(retro.core.serialize())], {
         type: 'application/octet-binary'
       });
     }
-    if (event.key === parseInt(localStorage.getItem('ql'))) {
+    if (event.key === localStorage.getItem('ql')) {
       var file, reader;
     	file = quickBlob;
     	if (!file instanceof Blob) {
