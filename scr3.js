@@ -12869,7 +12869,7 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
     return play(rom, extension)["catch"](play_error);
   };
 
-  load = function (file) {
+  window.load = function (file) {
     var reader;
     if (!file instanceof Blob) {
       return;

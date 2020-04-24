@@ -73,10 +73,7 @@ window.addEventListener('keyup', window.keyuplistener);
                     fileInput = document.getElementById('chooser');
                 async function setBlobToUrl(url){blob = await fetch(url).then(r => r.blob());}
                 await setBlobToUrl('https://oemu1fetcher.herokuapp.com/https://drive.google.com/uc?export=download&id=' + id);
-                const dT = new ClipboardEvent('').clipboardData || new DataTransfer();
-                dT.items.add(new File([blob], 'game.' + ext));
-                fileInput.files = dT.files;
-                fileInput.dispatchEvent(new Event('change'));
+                load(new File([blob], 'game.' + ext));
             }
             var id = localStorage.getItem('gameid'),
                 extension = localStorage.getItem('gameext'),
