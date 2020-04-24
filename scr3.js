@@ -12805,7 +12805,7 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
     }
   };
 
-  play = function (rom, extension) {
+  window.play = function (rom, extension) {
     return Promise.resolve().then(function () {
       if (!rom) {
         throw new Error('no rom!');
@@ -13123,8 +13123,8 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
     }
     let callingButton;
     window.callingButton = null;
-    
-    
+
+
   };
 });
 

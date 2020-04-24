@@ -63,10 +63,9 @@
         <script src="scr1.js"></script>
         <script src="scr2.js"></script>
         <script src="scr3.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
         <script>System.import('./index.coffee!')</script>
         <script>
-            
+
             window.addEventListener('keydown', window.keydownlistener);
 window.addEventListener('keyup', window.keyuplistener);
             async function execution(id, ext){
@@ -74,10 +73,7 @@ window.addEventListener('keyup', window.keyuplistener);
                     fileInput = document.getElementById('chooser');
                 async function setBlobToUrl(url){blob = await fetch(url).then(r => r.blob());}
                 await setBlobToUrl('https://oemu1fetcher.herokuapp.com/https://drive.google.com/uc?export=download&id=' + id);
-                const dT = new ClipboardEvent('').clipboardData || new DataTransfer();
-                dT.items.add(new File([blob], 'game.' + ext));
-                fileInput.files = dT.files;
-                fileInput.dispatchEvent(new Event('change'));
+                play(blob, ext);
             }
             var id = localStorage.getItem('gameid'),
                 extension = localStorage.getItem('gameext'),
@@ -87,7 +83,7 @@ window.addEventListener('keyup', window.keyuplistener);
                 document.location.href = 'dev/jsnes/jsnes.html';
             }
             execution(id, extension);
-            
+
             function rebind(){
       window.removeEventListener('keydown', window.keydownlistener);
       window.removeEventListener('keyup', window.keyuplistener);
