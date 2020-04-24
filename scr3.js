@@ -12522,7 +12522,7 @@ System.register('github:matthewbauer/x-retro@master/x-retro.js', ['npm:babel-run
 
       PlayerElement.inputs = [];
       PlayerElement.attachedCallback = function () {
-        this.style['image-rendering'] = 'crisp-edges';
+        this.classList.add('pixelize');
         this.style['background-color'] = 'black';
         if (this.hasAttribute('core')) {
           System['import'](this.getAttribute('core')).then((function (core) {
