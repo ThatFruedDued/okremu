@@ -12983,7 +12983,7 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
     return reader.readAsArrayBuffer(file);
   });
 
-  window.load = function () {
+  window.loadfunc = function () {
     return savechooser.click();
   };
 
