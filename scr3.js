@@ -12805,7 +12805,7 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
     }
   };
 
-  window.play = function (rom, extension) {
+  play = function (rom, extension) {
     return Promise.resolve().then(function () {
       if (!rom) {
         throw new Error('no rom!');
