@@ -7,6 +7,10 @@ input[type=text] {
   border: 1px solid gray;
 }
 
+body {
+  font-family: 'Roboto';
+}
+
 /* cyrillic-ext */
 @font-face {
   font-family: 'Roboto';
