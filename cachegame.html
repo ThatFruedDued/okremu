@@ -8,12 +8,7 @@
   </head>
   <body>
     <div id='titlebar' style='margin-top: -60px; margin-bottom: -60px;'>
-      <h2 style='display: inline-block; font-size: 75px;'>okrEMU</h2>
-      <p style='display: inline-block;'>
-        Subdomain from <a href='https://freedns.afraid.org'>FreeDNS</a><br>
-        Base emulator by <a href='https://matthewbauer.us'>Matthew Bauer</a><br>
-        <a href='index.html'>Options</a>
-      </p>
+      <h2 style='display: inline-block; font-size: 75px;'>Cache A Game</h2>
     </div>
     <div class="custom-select" style="width: 25%; display: inline-block;">
       <select id='chooseconsole'>
@@ -29,6 +24,7 @@
     <div id='snes'></div>
     <div id='gba'></div>
     <script src='scripts/styledselect.js'></script>
+    <script src='localForage/dist/localforage.js'></script>
     <script src='scripts/gameVals.js'></script>
     <script>
       gameVals.sort(function(a, b){
@@ -45,10 +41,6 @@
         document.getElementsByTagName('select')[0].dispatchEvent(new Event('change'));
         document.getElementsByClassName('select-selected')[0].innerHTML = document.getElementById('chooseconsole').getElementsByTagName('option')[document.getElementById('chooseconsole').selectedIndex].innerHTML;
         if(document.getElementById('search').value !== '' && document.getElementById('search').value !== null && document.getElementById('search').value !== undefined){
-          if(document.getElementById('search').value.toLowerCase() === '/dev'){
-            document.getElementById('search').value = '';
-            localStorage.setItem('devdata', prompt('devdata:'));
-          }
           for(var i = 0; i < gameVals.length; i++){
             if(gameVals[i][4].toLowerCase().indexOf(document.getElementById('search').value.toLowerCase()) === -1){
               document.getElementById(gameVals[i][0]).style.display = 'none';
@@ -102,9 +94,7 @@
         gameImg.style.cursor = 'pointer';
         document.getElementById(item[2]).appendChild(gameImg);
         document.getElementById(item[0]).addEventListener("click", function(){
-          localStorage.setItem('gameid', item[0]);
-          localStorage.setItem('gameext', item[1]);
-          document.location.href = 'emulator.html';
+          // Cache Game
         });
       }
     </script>
