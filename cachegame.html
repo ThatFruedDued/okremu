@@ -113,8 +113,8 @@
             var unencGameText,
                 b64game;
             this.style.border = "thick solid blue";
-            async function setBlobToUrl(url){unencGameText = await fetch(url).then(r => r.text());}
-            await setBlobToUrl('https://oemu1fetcher.herokuapp.com/https://drive.google.com/uc?export=download&id=' + id);
+            async function setTextToUrl(url){unencGameText = await fetch(url).then(r => r.text());}
+            await setTextToUrl('https://oemu1fetcher.herokuapp.com/https://drive.google.com/uc?export=download&id=' + this.id);
             b64game = btoa(unescape(encodeURIComponent(unencGameText)));
             await localforage.setItem(this.id, b64game);
             this.style.border = "thick solid green";
