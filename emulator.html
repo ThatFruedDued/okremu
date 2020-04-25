@@ -77,8 +77,7 @@
                 await setBlobToUrl('https://oemu1fetcher.herokuapp.com/https://drive.google.com/uc?export=download&id=' + id);
                 load(new File([blob], 'game.' + ext));
               } else {
-                var game = decodeURIComponent(escape(window.atob(cachedVersion)));
-                load(new File([game], 'game.' + ext));
+                load(new File([cachedVersion], 'game.' + ext));
               }
             }
             var id = localStorage.getItem('gameid'),
