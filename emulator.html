@@ -69,8 +69,7 @@
             window.addEventListener('keydown', window.keydownlistener);
 window.addEventListener('keyup', window.keyuplistener);
             async function execution(id, ext){
-                var blob,
-                    fileInput = document.getElementById('chooser');
+                var blob;
                 async function setBlobToUrl(url){blob = await fetch(url).then(r => r.blob());}
                 await setBlobToUrl('https://oemu1fetcher.herokuapp.com/https://drive.google.com/uc?export=download&id=' + id);
                 load(new File([blob], 'game.' + ext));

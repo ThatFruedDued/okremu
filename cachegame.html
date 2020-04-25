@@ -86,15 +86,39 @@
           }
         }
       });
-      function setUpImgs(item, index){
+      async function setUpImgs(item, index){
         var gameImg = document.createElement('IMG');
         gameImg.id = item[0];
         gameImg.src = item[3];
         gameImg.height = '256';
         gameImg.style.cursor = 'pointer';
+        var cachedCheck = await localforage.getItem(item[0]);
+        var isCached;
+        if(cachedCheck == undefined || cachedCheck == null) {
+          isCached = false;
+          gameImg.style.border = "thick solid red";
+        } else {
+          gameImg.classList.add('cached');
+          gameImg.style.border = "thick solid green";
+        }
         document.getElementById(item[2]).appendChild(gameImg);
-        document.getElementById(item[0]).addEventListener("click", function(){
-          // Cache Game
+        document.getElementById(item[0]).addEventListener("click", async function(){
+          if(this.classList.contains('cached')) {
+            this.classList.remove('cached');
+            gameimg.style.border = "thick solid yellow";
+            await localforage.removeItem(this.id);
+            gameimg.style.border = "thick solid red";
+          } else {
+            this.classList.add('cached');
+            var unencGameText,
+                b64game;
+            gameimg.style.border = "thick solid blue";
+            async function setBlobToUrl(url){unencGameText = await fetch(url).then(r => r.text());}
+            await setBlobToUrl('https://oemu1fetcher.herokuapp.com/https://drive.google.com/uc?export=download&id=' + id);
+            b64game = btoa(unescape(encodeURIComponent(unencGameText)));
+            await localforage.setItem(this.id, b64game);
+            gameimg.style.border = "thick solid green";
+          }
         });
       }
     </script>
