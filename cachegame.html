@@ -105,19 +105,19 @@
         document.getElementById(item[0]).addEventListener("click", async function(){
           if(this.classList.contains('cached')) {
             this.classList.remove('cached');
-            gameimg.style.border = "thick solid yellow";
+            this.style.border = "thick solid yellow";
             await localforage.removeItem(this.id);
-            gameimg.style.border = "thick solid red";
+            this.style.border = "thick solid red";
           } else {
             this.classList.add('cached');
             var unencGameText,
                 b64game;
-            gameimg.style.border = "thick solid blue";
+            this.style.border = "thick solid blue";
             async function setBlobToUrl(url){unencGameText = await fetch(url).then(r => r.text());}
             await setBlobToUrl('https://oemu1fetcher.herokuapp.com/https://drive.google.com/uc?export=download&id=' + id);
             b64game = btoa(unescape(encodeURIComponent(unencGameText)));
             await localforage.setItem(this.id, b64game);
-            gameimg.style.border = "thick solid green";
+            this.style.border = "thick solid green";
           }
         });
       }
