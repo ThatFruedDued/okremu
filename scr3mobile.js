@@ -13006,9 +13006,11 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
   });
   window.addEventListener('error', error);
   var validbuttons = ['a','b','x','y','r','l','left','right','up','down','select','start','qs','ql'];
-  window.pressButton = function(kcode){
-
-  }
+  window.pressButtonDown = function(kcode){
+    onkey(kcode, 'keydown');
+  };
+  window.pressButtonUp = function(kcode){
+    onkey(kcode, 'keyup');
   };
 });
 
