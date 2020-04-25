@@ -118,9 +118,7 @@
               async function setTextToUrl(url){gameText = await fetch(url).then(r => r.blob());}
               await setTextToUrl('https://oemu1fetcher.herokuapp.com/https://drive.google.com/uc?export=download&id=' + gameobj.id);
               await localforage.setItem(gameobj.id, gameText);
-              gameTextCheck = await localforage.getItem(gameobj.id);
-              await setTextToUrl('https://oemu1fetcher.herokuapp.com/https://drive.google.com/uc?export=download&id=' + gameobj.id);
-              if(gameTextCheck !== gameText) {
+              if(false) {
                 console.log('data incorrect. retrying.');
                 startCachingGame(gameobj);
               } else {
