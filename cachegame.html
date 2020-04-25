@@ -111,22 +111,22 @@
             this.style.border = "thick solid red";
           } else {
             this.classList.add('cached');
-            async function startCachingGame() {
+            async function startCachingGame(gameobj) {
               var gameText;
               var gameTextCheck;
-              this.style.border = "thick solid blue";
+              gameobj.style.border = "thick solid blue";
               async function setTextToUrl(url){gameText = await fetch(url).then(r => r.text());}
-              await setTextToUrl('https://oemu1fetcher.herokuapp.com/https://drive.google.com/uc?export=download&id=' + this.id);
-              await localforage.setItem(this.id, gameText);
-              gameTextCheck = await localforage.getItem(this.id);
+              await setTextToUrl('https://oemu1fetcher.herokuapp.com/https://drive.google.com/uc?export=download&id=' + gameobj.id);
+              await localforage.setItem(gameobj.id, gameText);
+              gameTextCheck = await localforage.getItem(gameobj.id);
               if(gameTextCheck !== gameText) {
                 console.log('data incorrect. retrying.');
-                startCachingGame();
+                startCachingGame(gameobj);
               } else {
-                this.style.border = "thick solid green";
+                gameobj.style.border = "thick solid green";
               }
             }
-            startCachingGame();
+            startCachingGame(this);
           }
         });
       }
