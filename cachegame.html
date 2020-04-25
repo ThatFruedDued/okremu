@@ -111,12 +111,22 @@
             this.style.border = "thick solid red";
           } else {
             this.classList.add('cached');
-            var gameText;
-            this.style.border = "thick solid blue";
-            async function setTextToUrl(url){gameText = await fetch(url).then(r => r.blob());}
-            await setTextToUrl('https://oemu1fetcher.herokuapp.com/https://drive.google.com/uc?export=download&id=' + this.id);
-            await localforage.setItem(this.id, gameText);
-            this.style.border = "thick solid green";
+            function startCachingGame() {
+              var gameText;
+              var gameTextCheck;
+              this.style.border = "thick solid blue";
+              async function setTextToUrl(url){gameText = await fetch(url).then(r => r.text());}
+              await setTextToUrl('https://oemu1fetcher.herokuapp.com/https://drive.google.com/uc?export=download&id=' + this.id);
+              await localforage.setItem(this.id, gameText);
+              gameTextCheck = await localforage.getItem(this.id);
+              if(gameTextCheck !== gameText) {
+                console.log('data incorrect. retrying.');
+                startCachingGame();
+              } else {
+                this.style.border = "thick solid green";
+              }
+            }
+            startCachingGame();
           }
         });
       }
