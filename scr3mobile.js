@@ -12348,8 +12348,7 @@ System.registerDynamic('github:matthewbauer/x-retro@master/player.coffee!github:
 
     Player.prototype.video_refresh = function (data, width, height, pitch) {
       var _data, format, i, j, k, len, pixel, ref, type;
-      this.width = width;
-      this.height = height;
+      this.height = "30%";
       this.gl.canvas.width = this.width;
       this.gl.canvas.height = this.height;
       switch (this.pixelFormat) {
@@ -13007,124 +13006,9 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
   });
   window.addEventListener('error', error);
   var validbuttons = ['a','b','x','y','r','l','left','right','up','down','select','start','qs','ql'];
-  var defkeys = [' ','z','x','c','d','s','ArrowLeft','ArrowRight','ArrowUp','ArrowDown','Shift','Enter','`','1'];
-  for(var lw = 0; lw < validbuttons.length; lw++){
-    if (localStorage.getItem(validbuttons[lw]) === null){
-      localStorage.setItem(validbuttons[lw],defkeys[lw] + '');
-    }
-    var keytext = localStorage.getItem(validbuttons[lw]).toLowerCase();
-    if (keytext === ' ') {
-      keytext = 'space';
-    }
-    document.getElementById(validbuttons[lw]).innerHTML = keytext;
+  window.pressButton = function(kcode){
+
   }
-  var quickBlob;
-  let keydownlistener;
-  window.keydownlistener = function(event) {
-    if (event.isComposing || event.keyCode === 229) {
-      return;
-    }
-    if (event.key === localStorage.getItem('qs')) {
-      quickBlob = new Blob([new Uint8Array(retro.core.serialize())], {
-        type: 'application/octet-binary'
-      });
-    }
-    if (event.key === localStorage.getItem('ql')) {
-      var file, reader;
-    	file = quickBlob;
-    	if (!file instanceof Blob) {
-        return;
-      }
-      draghint.classList.add('hidden');
-      reader = new FileReader();
-      reader.addEventListener('load', function (event) {
-        retro.core.unserialize(new Uint8Array(reader.result));
-        return;
-      });
-      return reader.readAsArrayBuffer(file);
-    }
-    if (event.key === localStorage.getItem('a')) {
-      onkey(32, 'keydown');
-    }
-    if (event.key === localStorage.getItem('b')) {
-      onkey(90, 'keydown');
-    }
-    if (event.key === localStorage.getItem('x')) {
-      onkey(88, 'keydown');
-    }
-    if (event.key === localStorage.getItem('y')) {
-      onkey(89, 'keydown');
-    }
-    if (event.key === localStorage.getItem('r')) {
-      onkey(82, 'keydown');
-    }
-    if (event.key === localStorage.getItem('l')) {
-      onkey(76, 'keydown');
-    }
-    if (event.key === localStorage.getItem('left')) {
-      onkey(37, 'keydown');
-    }
-    if (event.key === localStorage.getItem('right')) {
-      onkey(39, 'keydown');
-    }
-    if (event.key === localStorage.getItem('up')) {
-      onkey(38, 'keydown');
-    }
-    if (event.key === localStorage.getItem('down')) {
-      onkey(40, 'keydown');
-    }
-    if (event.key === localStorage.getItem('select')) {
-      onkey(16, 'keydown');
-    }
-    if (event.key === localStorage.getItem('start')) {
-      onkey(13, 'keydown');
-    }
-  };
-  let keyuplistener;
-  window.keyuplistener = function(event) {
-    if (event.isComposing || event.keyCode === 229) {
-      return;
-    }
-    if (event.key === localStorage.getItem('a')) {
-      onkey(32, 'keyup');
-    }
-    if (event.key === localStorage.getItem('b')) {
-      onkey(90, 'keyup');
-    }
-    if (event.key === localStorage.getItem('x')) {
-      onkey(88, 'keyup');
-    }
-    if (event.key === localStorage.getItem('y')) {
-      onkey(89, 'keyup');
-    }
-    if (event.key === localStorage.getItem('r')) {
-      onkey(82, 'keyup');
-    }
-    if (event.key === localStorage.getItem('l')) {
-      onkey(76, 'keyup');
-    }
-    if (event.key === localStorage.getItem('left')) {
-      onkey(37, 'keyup');
-    }
-    if (event.key === localStorage.getItem('right')) {
-      onkey(39, 'keyup');
-    }
-    if (event.key === localStorage.getItem('up')) {
-      onkey(38, 'keyup');
-    }
-    if (event.key === localStorage.getItem('down')) {
-      onkey(40, 'keyup');
-    }
-    if (event.key === localStorage.getItem('select')) {
-      onkey(16, 'keyup');
-    }
-    if (event.key === localStorage.getItem('start')) {
-      onkey(13, 'keyup');
-    }
-    let callingButton;
-    window.callingButton = null;
-
-
   };
 });
 

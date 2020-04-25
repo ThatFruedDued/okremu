@@ -1,5 +1,4 @@
-
-<!doctype html>
+<!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
@@ -62,13 +61,10 @@
     </div>
     <script src="scr1.js"></script>
     <script src="scr2.js"></script>
-    <script src="scr3.js"></script>
+    <script src="scr3mobile.js"></script>
     <script src="localForage/dist/localforage.js"></script>
     <script>System.import('./index.coffee!')</script>
     <script>
-    if(navigator.userAgent.includes('Mobile') || navigator.userAgent.includes('Opera Mini') || navigator.userAgent.includes('Opera Mobi')) {
-      document.location.href = 'mobile.html';
-    }
     window.addEventListener('keydown', window.keydownlistener);
     window.addEventListener('keyup', window.keyuplistener);
     async function execution(id, ext){
