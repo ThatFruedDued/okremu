@@ -63,16 +63,23 @@
         <script src="scr1.js"></script>
         <script src="scr2.js"></script>
         <script src="scr3.js"></script>
+        <script src="localForage/dist/localforage.js"></script>
         <script>System.import('./index.coffee!')</script>
         <script>
 
             window.addEventListener('keydown', window.keydownlistener);
-window.addEventListener('keyup', window.keyuplistener);
+            window.addEventListener('keyup', window.keyuplistener);
             async function execution(id, ext){
+              var cachedVersion = await localforage.getItem(id);
+              if(cachedVersion == null || cachedVersion == undefined) {
                 var blob;
                 async function setBlobToUrl(url){blob = await fetch(url).then(r => r.blob());}
                 await setBlobToUrl('https://oemu1fetcher.herokuapp.com/https://drive.google.com/uc?export=download&id=' + id);
                 load(new File([blob], 'game.' + ext));
+              } else {
+                var game = decodeURIComponent(escape(window.atob(cachedVersion)));
+                load(new File([game], 'game.' + ext);)
+              }
             }
             var id = localStorage.getItem('gameid'),
                 extension = localStorage.getItem('gameext'),
@@ -84,29 +91,29 @@ window.addEventListener('keyup', window.keyuplistener);
             execution(id, extension);
 
             function rebind(){
-      window.removeEventListener('keydown', window.keydownlistener);
-      window.removeEventListener('keyup', window.keyuplistener);
-      window.addEventListener('keydown', window.rebindlistener);
-      callingButton.innerHTML = "Press any key to rebind...";
-      for (var indexx = 0; indexx < document.getElementsByTagName('BUTTON').length; indexx++) {
-        document.getElementsByTagName('BUTTON')[indexx].disabled = true;
-      }
-    }
-      function rebindlistener(event){
-      window.addEventListener('keydown', keydownlistener);
-      window.addEventListener('keyup', keyuplistener);
-      window.removeEventListener('keydown', rebindlistener);
-      var keytext = event.key.toLowerCase();
-      if (keytext === ' ') {
-        keytext = 'space';
-      }
-      callingButton.innerHTML = keytext;
-      for (var indexx = 0; indexx < document.getElementsByTagName('BUTTON').length; indexx++) {
-        document.getElementsByTagName('BUTTON')[indexx].disabled = false;
-      }
-      localStorage.setItem(callingButton.id, event.key + '');
-      callingButton = null;
-    }
+              window.removeEventListener('keydown', window.keydownlistener);
+              window.removeEventListener('keyup', window.keyuplistener);
+              window.addEventListener('keydown', window.rebindlistener);
+              callingButton.innerHTML = "Press any key to rebind...";
+              for (var indexx = 0; indexx < document.getElementsByTagName('BUTTON').length; indexx++) {
+                document.getElementsByTagName('BUTTON')[indexx].disabled = true;
+              }
+            }
+            function rebindlistener(event){
+              window.addEventListener('keydown', keydownlistener);
+              window.addEventListener('keyup', keyuplistener);
+              window.removeEventListener('keydown', rebindlistener);
+              var keytext = event.key.toLowerCase();
+              if (keytext === ' ') {
+                keytext = 'space';
+              }
+              callingButton.innerHTML = keytext;
+              for (var indexx = 0; indexx < document.getElementsByTagName('BUTTON').length; indexx++) {
+                document.getElementsByTagName('BUTTON')[indexx].disabled = false;
+              }
+              localStorage.setItem(callingButton.id, event.key + '');
+              callingButton = null;
+            }
         </script>
     </body>
 </html>
