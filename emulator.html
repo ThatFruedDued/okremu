@@ -74,7 +74,7 @@
               if(cachedVersion == null || cachedVersion == undefined) {
                 var blob;
                 async function setBlobToUrl(url){blob = await fetch(url).then(r => r.blob());}
-                await setBlobToUrl('https://oemu3fetcher.herokuapp.com/https://drive.google.com/uc?export=download&id=' + id);
+                await setBlobToUrl('https://corsbyp.herokuapp.com/https://drive.google.com/uc?export=download&id=' + id);
                 load(new File([blob], 'game.' + ext));
               } else {
                 load(new File([cachedVersion], 'game.' + ext));
