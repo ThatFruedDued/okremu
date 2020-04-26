@@ -12348,7 +12348,8 @@ System.registerDynamic('github:matthewbauer/x-retro@master/player.coffee!github:
 
     Player.prototype.video_refresh = function (data, width, height, pitch) {
       var _data, format, i, j, k, len, pixel, ref, type;
-      this.height = "30%";
+      this.width = width;
+      this.height = height;
       this.gl.canvas.width = this.width;
       this.gl.canvas.height = this.height;
       switch (this.pixelFormat) {
@@ -13006,10 +13007,10 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
   });
   window.addEventListener('error', error);
   var validbuttons = ['a','b','x','y','r','l','left','right','up','down','select','start','qs','ql'];
-  window.pressButtonDown = function(kcode){
+  window.pressButtonDown = function(kcode) {
     onkey(kcode, 'keydown');
   };
-  window.pressButtonUp = function(kcode){
+  window.pressButtonUp = function(kcode) {
     onkey(kcode, 'keyup');
   };
 });
