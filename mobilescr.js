@@ -12,15 +12,27 @@ var down = document.getElementById("downbutton");
 var left = document.getElementById("leftbutton");
 
 window.addEventListener("touchstart", e => {
-  e.preventDefault();
+  if(e.touches.length > 1) {
+    e.preventDefault();
+  } else {
+    return;
+  }
 }, {passive: false});
 
 window.addEventListener("touchmove", e => {
-  e.preventDefault();
+  if(e.touches.length > 1) {
+    e.preventDefault();
+  } else {
+    return;
+  }
 }, {passive: false});
 
 window.addEventListener("touchend", e => {
-  e.preventDefault();
+  if(e.touches.length > 1) {
+    e.preventDefault();
+  } else {
+    return;
+  }
 }, {passive: false});
 
 setInterval(setFrameSize, 100);
