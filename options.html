@@ -12,6 +12,31 @@
   </head>
   <body>
     <script src="scripts/fastclick.js"></script>
+    <script>
+    window.addEventListener("touchstart", e => {
+      if(e.touches.length > 1) {
+        e.preventDefault();
+      } else {
+        return;
+      }
+    }, {passive: false});
+
+    window.addEventListener("touchmove", e => {
+      if(e.touches.length > 1) {
+        e.preventDefault();
+      } else {
+        return;
+      }
+    }, {passive: false});
+
+    window.addEventListener("touchend", e => {
+      if(e.touches.length > 1) {
+        e.preventDefault();
+      } else {
+        return;
+      }
+    }, {passive: false});
+    </script>
     <h1>Options</h1>
     <br><br>
     <a href="index.html">Back</a>

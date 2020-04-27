@@ -42,6 +42,29 @@
     <script src='scripts/styledselect.js'></script>
     <script src='scripts/gameVals.js'></script>
     <script>
+    window.addEventListener("touchstart", e => {
+      if(e.touches.length > 1) {
+        e.preventDefault();
+      } else {
+        return;
+      }
+    }, {passive: false});
+
+    window.addEventListener("touchmove", e => {
+      if(e.touches.length > 1) {
+        e.preventDefault();
+      } else {
+        return;
+      }
+    }, {passive: false});
+
+    window.addEventListener("touchend", e => {
+      if(e.touches.length > 1) {
+        e.preventDefault();
+      } else {
+        return;
+      }
+    }, {passive: false});
       gameVals.sort(function(a, b){
         var intArray = [a[4], b[4]]
         intArray.sort();

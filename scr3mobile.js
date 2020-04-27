@@ -12752,9 +12752,9 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
         el.addEventListener('mousedown', press);
         el.addEventListener('mousemove', press);
         el.addEventListener('mouseup', press);
-        el.addEventListener('touchstart', press);
-        el.addEventListener('touchmove', press);
-        el.addEventListener('touchend', press);
+        el.addEventListener('touchstart', press, {passive: false});
+        el.addEventListener('touchmove', press, {passive: false});
+        el.addEventListener('touchend', press, {passive: false});
       }
       return document.getElementById('overlay').appendChild(el);
     });
@@ -13004,7 +13004,7 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
 
   window.addEventListener('touchstart', function (e) {
     return e.preventDefault();
-  });
+  }, {passive: false});
   window.addEventListener('error', error);
   var validbuttons = ['a','b','x','y','r','l','left','right','up','down','select','start','qs','ql'];
   window.pressButtonDown = function(kcode) {
