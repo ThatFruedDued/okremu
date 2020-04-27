@@ -11,17 +11,17 @@ function setFrameSize() {
 
 window.addEventListener("touchstart", e => {
   e.preventDefault();
-  e.touches.forEach(tStart);
+  Array.prototype.forEach.call(e.touches, tStart);
 }, {passive: false});
 
 window.addEventListener("touchmove", e => {
   e.preventDefault();
-  e.touches.forEach(tMove);
+  Array.prototype.forEach.call(e.touches, tMove);
 }, {passive: false});
 
 window.addEventListener("touchend", e => {
   e.preventDefault();
-  e.touches.forEach(tEnd);
+  Array.prototype.forEach.call(e.touches, tEnd);
 }, {passive: false});
 
 function tEnd(touch){
