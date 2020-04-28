@@ -195,8 +195,8 @@ function tEnd(touch){
   }
 }
 
-function tMove(touch, tnum){
-  touches[tnum] = [parseFloat(touch.clientX), parseFloat(touch.clientY), touches[tnum][2]];
+function tMove(touch){
+  touches[indexOfById(parseFloat(touch.identifier))] = [parseFloat(touch.clientX), parseFloat(touch.clientY), touches[indexOfById(parseFloat(touch.identifier))][2]];
 }
 
 function tStart(touch) {
