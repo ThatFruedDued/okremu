@@ -149,7 +149,7 @@ window.addEventListener("touchcancel", e => {
 }, {passive: false});
 
 function tEnd(touch){
-  var toRemove = touch.identifier;
+  var toRemove = parseFloat(touch.identifier);
   var index = indexOfById(toRemove);
   touches.splice(index, 1);
   var removeElem = document.elementFromPoint(parseFloat(touch.clientX), parseFloat(touch.clientY));
@@ -200,7 +200,7 @@ function tMove(touch, tnum){
 }
 
 function tStart(touch) {
-  touches.push([parseFloat(touch.clientX), parseFloat(touch.clientY)], touch.identifier);
+  touches.push([parseFloat(touch.clientX), parseFloat(touch.clientY)], parseFloat(touch.identifier));
 }
 
 function touchHandler(){
