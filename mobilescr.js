@@ -7,7 +7,98 @@ function setFrameSize() {
   document.getElementById('frame').style.height = height + "px";
   document.getElementById('frame').style.width = width + "px";
   for(var i = 0; i < document.getElementsByClassName('button').length; i++){
-    document.getElementsByClassName('button')[i].height = 50;
+    switch(document.getElementsByClassName('button')[i].id){
+      case "shoulder":
+        document.getElementsByClassName('button')[i].style.height = 75;
+        document.getElementsByClassName('button')[i].style.width = width;
+        document.getElementsByClassName('button')[i].style.display = "block";
+        break;
+      case "dpadabxy":
+        document.getElementsByClassName('button')[i].style.height = 150;
+        document.getElementsByClassName('button')[i].style.width = width;
+        document.getElementsByClassName('button')[i].style.verticalAlign = "center";
+        document.getElementsByClassName('button')[i].style.display = "block";
+        break;
+      case "dpad":
+        document.getElementsByClassName('button')[i].style.height = 150;
+        document.getElementsByClassName('button')[i].style.width = 150;
+        document.getElementsByClassName('button')[i].style.textAlign = "left";
+        document.getElementsByClassName('button')[i].style.display = "block";
+        break;
+      case "abxy":
+        document.getElementsByClassName('button')[i].style.height = 150;
+        document.getElementsByClassName('button')[i].style.width = 150;
+        document.getElementsByClassName('button')[i].style.textAlign = "left";
+        document.getElementsByClassName('button')[i].style.display = "block";
+        break;
+      case "selst":
+        document.getElementsByClassName('button')[i].style.height = 50;
+        document.getElementsByClassName('button')[i].style.width = 100;
+        document.getElementsByClassName('button')[i].style.textAlign = "center";
+        document.getElementsByClassName('button')[i].style.verticalAlign = "bottom";
+        document.getElementsByClassName('button')[i].style.display = "block";
+        break;
+      case "bup":
+        document.getElementsByClassName('button')[i].style.height = 50;
+        document.getElementsByClassName('button')[i].style.textAlign = "center";
+        document.getElementsByClassName('button')[i].style.verticalAlign = "top";
+        break;
+      case "bright":
+        document.getElementsByClassName('button')[i].style.height = 50;
+        document.getElementsByClassName('button')[i].style.textAlign = "right";
+        document.getElementsByClassName('button')[i].style.verticalAlign = "center";
+        break;
+      case "bdown":
+        document.getElementsByClassName('button')[i].style.height = 50;
+        document.getElementsByClassName('button')[i].style.textAlign = "center";
+        document.getElementsByClassName('button')[i].style.verticalAlign = "bottom";
+        break;
+      case "bleft":
+        document.getElementsByClassName('button')[i].style.height = 50;
+        document.getElementsByClassName('button')[i].style.textAlign = "left";
+        document.getElementsByClassName('button')[i].style.verticalAlign = "center";
+        break;
+      case "bb":
+        document.getElementsByClassName('button')[i].style.height = 50;
+        document.getElementsByClassName('button')[i].style.textAlign = "center";
+        document.getElementsByClassName('button')[i].style.verticalAlign = "bottom";
+        break;
+      case "ba":
+        document.getElementsByClassName('button')[i].style.height = 50;
+        document.getElementsByClassName('button')[i].style.textAlign = "right";
+        document.getElementsByClassName('button')[i].style.verticalAlign = "center";
+        break;
+      case "bx":
+        document.getElementsByClassName('button')[i].style.height = 50;
+        document.getElementsByClassName('button')[i].style.textAlign = "center";
+        document.getElementsByClassName('button')[i].style.verticalAlign = "top";
+        break;
+      case "by":
+        document.getElementsByClassName('button')[i].style.height = 50;
+        document.getElementsByClassName('button')[i].style.textAlign = "left";
+        document.getElementsByClassName('button')[i].style.verticalAlign = "center";
+        break;
+      case "bl":
+        document.getElementsByClassName('button')[i].style.height = 75;
+        document.getElementsByClassName('button')[i].style.textAlign = "left";
+        document.getElementsByClassName('button')[i].style.verticalAlign = "center";
+        break;
+      case "br":
+        document.getElementsByClassName('button')[i].style.height = 75;
+        document.getElementsByClassName('button')[i].style.textAlign = "right";
+        document.getElementsByClassName('button')[i].style.verticalAlign = "center";
+        break;
+      case "bselect":
+        document.getElementsByClassName('button')[i].style.height = 50;
+        document.getElementsByClassName('button')[i].style.textAlign = "left";
+        document.getElementsByClassName('button')[i].style.verticalAlign = "center";
+        break;
+      case "bstart":
+        document.getElementsByClassName('button')[i].style.height = 50;
+        document.getElementsByClassName('button')[i].style.textAlign = "right";
+        document.getElementsByClassName('button')[i].style.verticalAlign = "center";
+        break;
+    }
   }
 }
 
@@ -23,7 +114,6 @@ window.addEventListener("touchmove", e => {
 
 window.addEventListener("touchend", e => {
   e.preventDefault();
-  console.log(e);
   for(var i = 0; i < e.changedTouches.length; i++){
     tEnd(e.changedTouches[i]);
   }
@@ -36,7 +126,6 @@ function tEnd(touch){
   var removeElem = touch.target;
   var index = prevElements.indexOf(removeElem);
   prevElements.splice(index, 1);
-  console.log(removeElem);
   switch(removeElem.id){
     case "bup":
       document.getElementById('frame').contentWindow.pressButtonUp(38);

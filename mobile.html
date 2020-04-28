@@ -3,7 +3,6 @@
 <head>
   <title>okrEMU</title>
   <meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0">
-  <link rel="stylesheet" src="mobile.css">
 </head>
 <body style="overflow: hidden;">
   <script src="mobilescr.js"></script>
@@ -11,23 +10,25 @@
   <iframe src="mobileframe.html" id="frame" frameBorder="0" style="margin: -10px;">Your browser does not support okrEMU mobile.</iframe>
   <br>
   <div id="buttons">
-    <div id="shoulder">
+    <div id="shoulder" class="button btncontainer">
       <img src="mobilebuttons/leftshoulder.png" id="bl" class="button">
-      <img src="mobilebuttons/leftshoulder.png" id="br" class="button">
+      <img src="mobilebuttons/rightshoulder.png" id="br" class="button">
     </div>
-    <div id="dpad">
-      <img src="mobilebuttons/up.png" id="bup" class="button">
-      <img src="mobilebuttons/right.png" id="bright" class="button">
-      <img src="mobilebuttons/down.png" id="bdown" class="button">
-      <img src="mobilebuttons/left.png" id="bleft" class="button">
+    <div id="dpadabxy">
+      <div id="dpad" class="button btncontainer">
+        <img src="mobilebuttons/up.png" id="bup" class="button">
+        <img src="mobilebuttons/right.png" id="bright" class="button">
+        <img src="mobilebuttons/down.png" id="bdown" class="button">
+        <img src="mobilebuttons/left.png" id="bleft" class="button">
+      </div>
+      <div id="abxy" class="button btncontainer">
+        <img src="mobilebuttons/a.png" id="ba" class="button">
+        <img src="mobilebuttons/b.png" id="bb" class="button">
+        <img src="mobilebuttons/x.png" id="bx" class="button">
+        <img src="mobilebuttons/y.png" id="by" class="button">
+      </div>
     </div>
-    <div id="abxy">
-      <img src="mobilebuttons/a.png" id="ba" class="button">
-      <img src="mobilebuttons/b.png" id="bb" class="button">
-      <img src="mobilebuttons/x.png" id="bx" class="button">
-      <img src="mobilebuttons/y.png" id="by" class="button">
-    </div>
-    <div id="selst">
+    <div id="selst" class="button btncontainer">
       <img src="mobilebuttons/select.png" id="bselect" class="button">
       <img src="mobilebuttons/start.png" id="bstart" class="button">
     </div>
