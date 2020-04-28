@@ -34,6 +34,8 @@ function tEnd(touch){
   var index = touches.indexOf(toRemove);
   touches.splice(index, 1);
   var removeElem = touch.target;
+  var index = prevElements.indexOf(removeElem);
+  prevElements.splice(index, 1);
   console.log(removeElem);
   switch(removeElem.id){
     case "bup":
