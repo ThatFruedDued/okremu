@@ -214,6 +214,9 @@ function touchHandler(){
     touchedElem = document.elementFromPoint(parseFloat(touches[i][0]), parseFloat(touches[i][1]));
     try {
       previous = prevElements[i];
+      if(i > prevElements.length - 1){
+        throw new error('Catch me if you can!');
+      }
       if(touchedElem === previous){
         return;
       } else {
