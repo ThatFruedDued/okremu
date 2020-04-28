@@ -1,12 +1,11 @@
 var touches = [];
 var prevElements = [];
-var frame = document.getElementById('frame');
 
 function setFrameSize() {
   var height = visualViewport.height * 0.4;
   var width = visualViewport.width;
-  frame.style.height = height + "px";
-  frame.style.width = width + "px";
+  document.getElementById('frame').style.height = height + "px";
+  document.getElementById('frame').style.width = width + "px";
 }
 
 window.addEventListener("touchstart", e => {
@@ -26,6 +25,7 @@ window.addEventListener("touchend", e => {
 
 function tEnd(touch){
   var toRemove = [parseFloat(touch.clientX), parseFloat(touch.clientY)];
+  console.log(toRemove);
   var index = touches.indexOf(toRemove);
   touches.splice(index, 1);
 }
@@ -48,118 +48,118 @@ function touchHandler(){
       } else {
         switch(previous.id){
           case "bup":
-            frame.contentWindow.pressButtonUp(38);
+            document.getElementById('frame').contentWindow.pressButtonUp(38);
             break;
           case "bright":
-            frame.contentWindow.pressButtonUp(39);
+            document.getElementById('frame').contentWindow.pressButtonUp(39);
             break;
           case "bdown":
-            frame.contentWindow.pressButtonUp(40);
+            document.getElementById('frame').contentWindow.pressButtonUp(40);
             break;
           case "bleft":
-            frame.contentWindow.pressButtonUp(37);
+            document.getElementById('frame').contentWindow.pressButtonUp(37);
             break;
           case "bb":
-            frame.contentWindow.pressButtonUp(90);
+            document.getElementById('frame').contentWindow.pressButtonUp(90);
             break;
           case "ba":
-            frame.contentWindow.pressButtonUp(32);
+            document.getElementById('frame').contentWindow.pressButtonUp(32);
             break;
           case "bx":
-            frame.contentWindow.pressButtonUp(88);
+            document.getElementById('frame').contentWindow.pressButtonUp(88);
             break;
           case "by":
-            frame.contentWindow.pressButtonUp(89);
+            document.getElementById('frame').contentWindow.pressButtonUp(89);
             break;
           case "bl":
-            frame.contentWindow.pressButtonUp(76);
+            document.getElementById('frame').contentWindow.pressButtonUp(76);
             break;
           case "br":
-            frame.contentWindow.pressButtonUp(82);
+            document.getElementById('frame').contentWindow.pressButtonUp(82);
             break;
           case "bselect":
-            frame.contentWindow.pressButtonUp(16);
+            document.getElementById('frame').contentWindow.pressButtonUp(16);
             break;
           case "bstart":
-            frame.contentWindow.pressButtonUp(13);
+            document.getElementById('frame').contentWindow.pressButtonUp(13);
             break;
         }
         switch(touchedElem.id){
           case "bup":
-            frame.contentWindow.pressButtonDown(38);
+            document.getElementById('frame').contentWindow.pressButtonDown(38);
             break;
           case "bright":
-            frame.contentWindow.pressButtonDown(39);
+            document.getElementById('frame').contentWindow.pressButtonDown(39);
             break;
           case "bdown":
-            frame.contentWindow.pressButtonDown(40);
+            document.getElementById('frame').contentWindow.pressButtonDown(40);
             break;
           case "bleft":
-            frame.contentWindow.pressButtonDown(37);
+            document.getElementById('frame').contentWindow.pressButtonDown(37);
             break;
           case "bb":
-            frame.contentWindow.pressButtonDown(90);
+            document.getElementById('frame').contentWindow.pressButtonDown(90);
             break;
           case "ba":
-            frame.contentWindow.pressButtonDown(32);
+            document.getElementById('frame').contentWindow.pressButtonDown(32);
             break;
           case "bx":
-            frame.contentWindow.pressButtonDown(88);
+            document.getElementById('frame').contentWindow.pressButtonDown(88);
             break;
           case "by":
-            frame.contentWindow.pressButtonDown(89);
+            document.getElementById('frame').contentWindow.pressButtonDown(89);
             break;
           case "bl":
-            frame.contentWindow.pressButtonDown(76);
+            document.getElementById('frame').contentWindow.pressButtonDown(76);
             break;
           case "br":
-            frame.contentWindow.pressButtonDown(82);
+            document.getElementById('frame').contentWindow.pressButtonDown(82);
             break;
           case "bselect":
-            frame.contentWindow.pressButtonDown(16);
+            document.getElementById('frame').contentWindow.pressButtonDown(16);
             break;
           case "bstart":
-            frame.contentWindow.pressButtonDown(13);
+            document.getElementById('frame').contentWindow.pressButtonDown(13);
             break;
         }
       }
     } catch(err) {
       switch(touchedElem.id){
         case "bup":
-          frame.contentWindow.pressButtonDown(38);
+          document.getElementById('frame').contentWindow.pressButtonDown(38);
           break;
         case "bright":
-          frame.contentWindow.pressButtonDown(39);
+          document.getElementById('frame').contentWindow.pressButtonDown(39);
           break;
         case "bdown":
-          frame.contentWindow.pressButtonDown(40);
+          document.getElementById('frame').contentWindow.pressButtonDown(40);
           break;
         case "bleft":
-          frame.contentWindow.pressButtonDown(37);
+          document.getElementById('frame').contentWindow.pressButtonDown(37);
           break;
         case "bb":
-          frame.contentWindow.pressButtonDown(90);
+          document.getElementById('frame').contentWindow.pressButtonDown(90);
           break;
         case "ba":
-          frame.contentWindow.pressButtonDown(32);
+          document.getElementById('frame').contentWindow.pressButtonDown(32);
           break;
         case "bx":
-          frame.contentWindow.pressButtonDown(88);
+          document.getElementById('frame').contentWindow.pressButtonDown(88);
           break;
         case "by":
-          frame.contentWindow.pressButtonDown(89);
+          document.getElementById('frame').contentWindow.pressButtonDown(89);
           break;
         case "bl":
-          frame.contentWindow.pressButtonDown(76);
+          document.getElementById('frame').contentWindow.pressButtonDown(76);
           break;
         case "br":
-          frame.contentWindow.pressButtonDown(82);
+          document.getElementById('frame').contentWindow.pressButtonDown(82);
           break;
         case "bselect":
-          frame.contentWindow.pressButtonDown(16);
+          document.getElementById('frame').contentWindow.pressButtonDown(16);
           break;
         case "bstart":
-          frame.contentWindow.pressButtonDown(13);
+          document.getElementById('frame').contentWindow.pressButtonDown(13);
           break;
       }
     }
