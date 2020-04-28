@@ -143,7 +143,7 @@ function tEnd(touch){
   var toRemove = [parseFloat(touch.clientX), parseFloat(touch.clientY)];
   var index = touches.indexOf(toRemove);
   touches.splice(index, 1);
-  var removeElem = touch.target;
+  var removeElem = document.elementFromPoint(parseFloat(touch.clientX), parseFloat(touch.clientY));
   var index = prevElements.indexOf(removeElem);
   prevElements.splice(index, 1);
   switch(removeElem.id){
