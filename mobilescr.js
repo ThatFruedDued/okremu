@@ -26,7 +26,7 @@ window.addEventListener("touchend", e => {
 
 function tEnd(touch){
   var toRemove = [parseFloat(touch.clientX), parseFloat(touch.clientY)];
-  console.log(toRemove);
+  console.log('heloooo?');
   var index = touches.indexOf(toRemove);
   touches.splice(index, 1);
 }
