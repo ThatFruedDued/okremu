@@ -23,7 +23,7 @@ window.addEventListener("touchmove", e => {
 
 window.addEventListener("touchend", e => {
   e.preventDefault();
-  console.log(e.touches[0]);
+  console.log(e.touches);
   Array.prototype.forEach.call(new Array(e.touches), tEnd);
 }, {passive: false});
 
