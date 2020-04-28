@@ -127,12 +127,12 @@ function indexOfById(id){
 window.addEventListener("touchstart", e => {
   e.preventDefault();
   console.log(e);
-  Array.prototype.forEach.call(e.touches, tStart);
+  Array.prototype.forEach.call(e.changedTouches, tStart);
 }, {passive: false});
 
 window.addEventListener("touchmove", e => {
   e.preventDefault();
-  Array.prototype.forEach.call(e.touches, tMove);
+  Array.prototype.forEach.call(e.changedTouches, tMove);
 }, {passive: false});
 
 window.addEventListener("touchend", e => {
