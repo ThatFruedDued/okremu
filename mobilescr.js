@@ -151,11 +151,15 @@ window.addEventListener("touchcancel", e => {
 
 function tEnd(touch){
   console.log(touch.identifier.toString() + " ended");
-  var toRemove = parseFloat(touch.identifier);
-  var index = indexOfById(toRemove);
+  window.toRemove = parseFloat(touch.identifier);
+  window.index = indexOfById(toRemove);
   touches.splice(index, 1);
+  if(indexOfById(toRemove) !== -1){
+    console.log('didn\'t work! ARGH!');
+    touches.splice(index, 1);
+  }
   var removeElem = document.elementFromPoint(parseFloat(touch.clientX), parseFloat(touch.clientY));
-  index = prevElements.indexOf(removeElem);
+  window.index = prevElements.indexOf(removeElem);
   prevElements.splice(index, 1);
   switch(removeElem.id){
     case "bup":
