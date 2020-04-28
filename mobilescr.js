@@ -22,14 +22,14 @@ function setFrameSize() {
         break;
       case "dpad":
         document.getElementsByClassName('button')[i].style.position = "absolute";
-        document.getElementsByClassName('button')[i].style.left = "0px";
+        document.getElementsByClassName('button')[i].style.left = "10px";
         document.getElementsByClassName('button')[i].style.height = "150px";
         document.getElementsByClassName('button')[i].style.width = "150px";
         document.getElementsByClassName('button')[i].style.display = "block";
         break;
       case "abxy":
         document.getElementsByClassName('button')[i].style.position = "absolute";
-        document.getElementsByClassName('button')[i].style.right = "0px";
+        document.getElementsByClassName('button')[i].style.right = "10px";
         document.getElementsByClassName('button')[i].style.height = "150px";
         document.getElementsByClassName('button')[i].style.width = "150px";
         document.getElementsByClassName('button')[i].style.float = "left";
