@@ -343,6 +343,7 @@ function touchHandler(){
       }
     }
   }
+  console.log('finished');
 }
 
 setInterval(touchHandler, 0);
