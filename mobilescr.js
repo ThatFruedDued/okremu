@@ -213,6 +213,8 @@ function touchHandler(){
   for(var i = 0; i < touches.length; i++){
     touchedElem = document.elementFromPoint(parseFloat(touches[i][0]), parseFloat(touches[i][1]));
     try {
+      console.log(prevElements.length);
+      console.log(i);
       previous = prevElements[i];
       if(i > prevElements.length - 1){
         console.log('throwing error...');
