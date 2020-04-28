@@ -27,10 +27,11 @@ window.addEventListener("touchend", e => {
 }, {passive: false});
 
 function tEnd(touch){
-  var toRemove = [parseDouble(touch.clientX), parseDouble(touch.clientY)];
+  var toRemove = [parseFloat(touch.clientX), parseFloat(touch.clientY)];
+  console.log(toRemove);
   var index = touches.indexOf(toRemove);
   touches.splice(index, 1);
-  var removeElem = document.elementFromPoint(parseDouble(toRemove[0]), parseDouble(toRemove[1]));
+  var removeElem = document.elementFromPoint(parseFloat(toRemove[0]), parseFloat(toRemove[1]));
   switch(removeElem.id){
     case "bup":
       document.getElementById('frame').contentWindow.pressButtonUp(38);
@@ -72,16 +73,16 @@ function tEnd(touch){
 }
 
 function tMove(touch, tnum){
-  touches[tnum] = [parseDouble(touch.clientX), parseDouble(touch.clientY)];
+  touches[tnum] = [parseFloat(touch.clientX), parseFloat(touch.clientY)];
 }
 
 function tStart(touch) {
-  touches.push([parseDouble(touch.clientX), parseDouble(touch.clientY)]);
+  touches.push([parseFloat(touch.clientX), parseFloat(touch.clientY)]);
 }
 
 function touchHandler(){
   for(var i = 0; i < touches.length; i++){
-    touchedElem = document.elementFromPoint(parseDouble(touches[i][0]), parseDouble(touches[i][1]));
+    touchedElem = document.elementFromPoint(parseFloat(touches[i][0]), parseFloat(touches[i][1]));
     try {
       previous = prevElements[i];
       if(touchedElem === previous){
