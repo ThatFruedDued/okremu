@@ -150,6 +150,7 @@ window.addEventListener("touchcancel", e => {
 }, {passive: false});
 
 function tEnd(touch){
+  console.log(touch.identifier.toString() + " ended");
   var toRemove = parseFloat(touch.identifier);
   var index = indexOfById(toRemove);
   touches.splice(index, 1);
