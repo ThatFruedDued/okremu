@@ -210,6 +210,7 @@ function tStart(touch) {
 }
 
 function touchHandler(){
+  console.log(touches.length);
   for(var i = 0; i < touches.length; i++){
     touchedElem = document.elementFromPoint(parseFloat(touches[i][0]), parseFloat(touches[i][1]));
     try {
@@ -343,7 +344,6 @@ function touchHandler(){
       }
     }
   }
-  console.log('finished');
 }
 
 setInterval(touchHandler, 0);
