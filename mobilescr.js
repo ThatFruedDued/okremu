@@ -32,7 +32,7 @@ function tEnd(touch){
   console.log(touch.clientX);
   var index = touches.indexOf(toRemove);
   touches.splice(index, 1);
-  var removeElem = document.elementFromPoint(parseFloat(touch.clientX), parseFloat(touch.clientY));
+  var removeElem = touch.target;
   switch(removeElem.id){
     case "bup":
       document.getElementById('frame').contentWindow.pressButtonUp(38);
