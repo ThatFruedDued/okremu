@@ -126,6 +126,7 @@ function indexOfById(id){
 
 window.addEventListener("touchstart", e => {
   e.preventDefault();
+  console.log(e);
   Array.prototype.forEach.call(e.touches, tStart);
 }, {passive: false});
 
@@ -200,7 +201,7 @@ function tMove(touch){
 }
 
 function tStart(touch) {
-  touches.push([parseFloat(touch.clientX), parseFloat(touch.clientY)], parseFloat(touch.identifier));
+  touches.push([parseFloat(touch.clientX), parseFloat(touch.clientY), parseFloat(touch.identifier)]);
 }
 
 function touchHandler(){
