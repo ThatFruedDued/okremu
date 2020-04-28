@@ -296,6 +296,7 @@ function touchHandler(){
         }
       }
     } catch(err) {
+      prevElements[i] = touchedElem;
       switch(touchedElem.id){
         case "bup":
           document.getElementById('frame').contentWindow.pressButtonDown(38);
