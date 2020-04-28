@@ -6,6 +6,9 @@ function setFrameSize() {
   var width = visualViewport.width;
   document.getElementById('frame').style.height = height + "px";
   document.getElementById('frame').style.width = width + "px";
+  for(var i = 0; i < document.getElementsByClassName('button').length; i++){
+    document.getElementsByClassName('button')[i].height = 50;
+  }
 }
 
 window.addEventListener("touchstart", e => {
