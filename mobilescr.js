@@ -30,7 +30,7 @@ function tEnd(touch){
   var toRemove = [parseFloat(touch.clientX), parseFloat(touch.clientY)];
   var index = touches.indexOf(toRemove);
   touches.splice(index, 1);
-  var removeElem = document.elementFromPoint(toRemove[0], toRemove[1]);
+  var removeElem = document.elementFromPoint(parseFloat(toRemove[0]), parseFloat(toRemove[1]));
   switch(removeElem.id){
     case "bup":
       document.getElementById('frame').contentWindow.pressButtonUp(38);
