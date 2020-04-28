@@ -23,15 +23,52 @@ window.addEventListener("touchmove", e => {
 
 window.addEventListener("touchend", e => {
   e.preventDefault();
-  console.log(e);
   Array.prototype.forEach.call(new Array(e.touches), tEnd);
 }, {passive: false});
 
 function tEnd(touch){
   var toRemove = [parseFloat(touch.clientX), parseFloat(touch.clientY)];
-  console.log('heloooo?');
   var index = touches.indexOf(toRemove);
   touches.splice(index, 1);
+  var removeElem = document.elementFromPoint(toRemove[0], toRemove[1]);
+  switch(removeElem.id){
+    case "bup":
+      document.getElementById('frame').contentWindow.pressButtonUp(38);
+      break;
+    case "bright":
+      document.getElementById('frame').contentWindow.pressButtonUp(39);
+      break;
+    case "bdown":
+      document.getElementById('frame').contentWindow.pressButtonUp(40);
+      break;
+    case "bleft":
+      document.getElementById('frame').contentWindow.pressButtonUp(37);
+      break;
+    case "bb":
+      document.getElementById('frame').contentWindow.pressButtonUp(90);
+      break;
+    case "ba":
+      document.getElementById('frame').contentWindow.pressButtonUp(32);
+      break;
+    case "bx":
+      document.getElementById('frame').contentWindow.pressButtonUp(88);
+      break;
+    case "by":
+      document.getElementById('frame').contentWindow.pressButtonUp(89);
+      break;
+    case "bl":
+      document.getElementById('frame').contentWindow.pressButtonUp(76);
+      break;
+    case "br":
+      document.getElementById('frame').contentWindow.pressButtonUp(82);
+      break;
+    case "bselect":
+      document.getElementById('frame').contentWindow.pressButtonUp(16);
+      break;
+    case "bstart":
+      document.getElementById('frame').contentWindow.pressButtonUp(13);
+      break;
+  }
 }
 
 function tMove(touch, tnum){
