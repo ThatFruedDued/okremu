@@ -25,22 +25,22 @@ window.addEventListener("touchend", e => {
 }, {passive: false});
 
 function tEnd(touch){
-  var toRemove = [touch.clientX, touch.clientY];
+  var toRemove = [parseFloat(touch.clientX), parseFloat(touch.clientY)];
   var index = touches.indexOf(toRemove);
   touches.splice(index, 1);
 }
 
 function tMove(touch, tnum){
-  touches[tnum] = [touch.clientX, touch.clientY];
+  touches[tnum] = [parseFloat(touch.clientX), parseFloat(touch.clientY)];
 }
 
 function tStart(touch) {
-  touches.push(touch.clientX, touch.clientY);
+  touches.push([parseFloat(touch.clientX), parseFloat(touch.clientY)]);
 }
 
 function touchHandler(){
   for(var i = 0; i < touches.length; i++){
-    touchedElem = document.elementFromPoint(touches[i][0], touches[i][1]);
+    touchedElem = document.elementFromPoint(parseFloat(touches[i][0]), parseFloat(touches[i][1]));
     try {
       previous = prevElements[i];
       if(touchedElem === previous){
