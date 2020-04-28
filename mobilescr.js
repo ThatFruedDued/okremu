@@ -115,6 +115,15 @@ function setFrameSize() {
   }
 }
 
+function indexOfById(id){
+  for(var i = 0; i < touches.length; i++){
+    if(touches[i][2] === id){
+      return i;
+    }
+  }
+  return -1;
+}
+
 window.addEventListener("touchstart", e => {
   e.preventDefault();
   Array.prototype.forEach.call(e.touches, tStart);
@@ -140,11 +149,11 @@ window.addEventListener("touchcancel", e => {
 }, {passive: false});
 
 function tEnd(touch){
-  var toRemove = [parseFloat(touch.clientX), parseFloat(touch.clientY)];
-  var index = touches.indexOf(toRemove);
+  var toRemove = touch.identifier;
+  var index = indexOfById(toRemove);
   touches.splice(index, 1);
   var removeElem = document.elementFromPoint(parseFloat(touch.clientX), parseFloat(touch.clientY));
-  var index = prevElements.indexOf(removeElem);
+  index = prevElements.indexOf(removeElem);
   prevElements.splice(index, 1);
   switch(removeElem.id){
     case "bup":
@@ -187,11 +196,11 @@ function tEnd(touch){
 }
 
 function tMove(touch, tnum){
-  touches[tnum] = [parseFloat(touch.clientX), parseFloat(touch.clientY)];
+  touches[tnum] = [parseFloat(touch.clientX), parseFloat(touch.clientY), touches[tnum][2]];
 }
 
 function tStart(touch) {
-  touches.push([parseFloat(touch.clientX), parseFloat(touch.clientY)]);
+  touches.push([parseFloat(touch.clientX), parseFloat(touch.clientY)], touch.identifier);
 }
 
 function touchHandler(){
