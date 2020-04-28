@@ -132,6 +132,13 @@ window.addEventListener("touchend", e => {
   }
 }, {passive: false});
 
+window.addEventListener("touchcancel", e => {
+  e.preventDefault();
+  for(var i = 0; i < e.changedTouches.length; i++){
+    tEnd(e.changedTouches[i]);
+  }
+}, {passive: false});
+
 function tEnd(touch){
   var toRemove = [parseFloat(touch.clientX), parseFloat(touch.clientY)];
   var index = touches.indexOf(toRemove);
