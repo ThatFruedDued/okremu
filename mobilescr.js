@@ -215,6 +215,7 @@ function touchHandler(){
     try {
       previous = prevElements[i];
       if(i > prevElements.length - 1){
+        console.log('throwing error...');
         throw new error('Catch me if you can!');
       }
       if(touchedElem === previous){
