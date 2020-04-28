@@ -21,7 +21,7 @@ window.addEventListener("touchmove", e => {
 window.addEventListener("touchend", e => {
   e.preventDefault();
   console.log(e);
-  Array.prototype.forEach.call(e.touches, tEnd);
+  Array.prototype.forEach.call(new Array(e.touches), tEnd);
 }, {passive: false});
 
 function tEnd(touch){
