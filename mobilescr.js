@@ -47,6 +47,7 @@ function touchHandler(){
       if(touchedElem === previous){
         return;
       } else {
+        prevElements[i] = touchedElem;
         switch(previous.id){
           case "bup":
             document.getElementById('frame').contentWindow.pressButtonUp(38);
