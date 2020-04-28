@@ -23,15 +23,15 @@ window.addEventListener("touchmove", e => {
 
 window.addEventListener("touchend", e => {
   e.preventDefault();
-  Array.prototype.forEach.call(new Array(e.changedTouches), tEnd);
+  Array.prototype.forEach.call(new Array(e.touches), tEnd);
 }, {passive: false});
 
 function tEnd(touch){
-  var toRemove = [parseFloat(touch.clientX), parseFloat(touch.clientY)];
-  console.log(touch.clientX);
+  var toRemove = [parseFloat(touch.pageX), parseFloat(touch.pageY)];
+  console.log(touch.pageX);
   var index = touches.indexOf(toRemove);
   touches.splice(index, 1);
-  var removeElem = document.elementFromPoint(parseFloat(touch.clientX), parseFloat(touch.clientY));
+  var removeElem = document.elementFromPoint(parseFloat(touch.pageX), parseFloat(touch.pageY));
   switch(removeElem.id){
     case "bup":
       document.getElementById('frame').contentWindow.pressButtonUp(38);
