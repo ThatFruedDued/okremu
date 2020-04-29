@@ -126,7 +126,6 @@ function indexOfById(id){
 
 window.addEventListener("touchstart", e => {
   e.preventDefault();
-  console.log(e);
   Array.prototype.forEach.call(e.changedTouches, tStart);
 }, {passive: false});
 
@@ -150,12 +149,10 @@ window.addEventListener("touchcancel", e => {
 }, {passive: false});
 
 function tEnd(touch){
-  console.log(touch.identifier.toString() + " ended");
   window.toRemove = parseFloat(touch.identifier);
   window.index = indexOfById(toRemove);
   touches.splice(index, 1);
   if(indexOfById(toRemove) !== -1){
-    console.log('didn\'t work! ARGH!');
     touches.splice(index, 1);
   }
   var removeElem = document.elementFromPoint(parseFloat(touch.clientX), parseFloat(touch.clientY));
@@ -210,15 +207,11 @@ function tStart(touch) {
 }
 
 function touchHandler(){
-  console.log(touches.length);
-  for(var i = 0; i < touches.length; i++){
+  touches.forEach(function(garbage, i){
     touchedElem = document.elementFromPoint(parseFloat(touches[i][0]), parseFloat(touches[i][1]));
     try {
-      console.log(prevElements.length);
-      console.log(i);
       previous = prevElements[i];
       if(i > prevElements.length - 1){
-        console.log('throwing error...');
         throw new error('Catch me if you can!');
       }
       if(touchedElem === previous){
@@ -343,7 +336,7 @@ function touchHandler(){
           break;
       }
     }
-  }
+  });
 }
 
 setInterval(touchHandler, 0);
