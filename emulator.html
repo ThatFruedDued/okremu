@@ -4,6 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="emustyle.css">
   <title>okrEMU</title>
 </head>
@@ -28,13 +29,13 @@
     <div class="menu hidden screen" id="menu">
       <input type="file" id="savechooser" class="chooser"/>
       <div class="options">
-        <h1>Your game is paused.</h1>
-        <button onclick="resume()">resume</button>
-        <button onclick="reset()">reset</button>
-        <button onclick="save()">save game</button>
-        <button onclick="loadfunc()">load save</button>
-        <button onclick="removeSave(); reset()">delete save</button>
-        <button id="mute" onclick="mute()">mute</button>
+        <h1>Paused</h1>
+        <button onclick="resume()">Resume</button>
+        <button onclick="reset()">Reset</button>
+        <button onclick="save()">Download Save</button>
+        <button onclick="loadfunc()">Import Save</button>
+        <button onclick="confirmation()">Delete Save</button>
+        <button id="mute" onclick="mute()">Mute</button>
       </div>
       <div>
         <h1>Controls:</h1>
@@ -54,7 +55,6 @@
         <div>Quick load = <button id='ql' onclick='callingButton = this; rebind();'></button></div>
       </div>
       <div>
-        <h1>Core Info:</h1>
         <pre id="core-name"></pre>
         <pre id="system-info"></pre>
         <pre id="av-info"></pre>

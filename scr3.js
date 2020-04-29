@@ -13124,7 +13124,15 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
     let callingButton;
     window.callingButton = null;
 
-
+    window.confirmation = function(){
+      var typed = prompt("This will delete ALL progress for this game. This cannot be undone. Type \"I Understand\" to continue.");
+      if(typed === "I Understand"){
+        removeSave();
+        reset();
+      } else {
+        alert("Save deletion cancelled.");
+      }
+    }
   };
 });
 

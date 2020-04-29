@@ -8,6 +8,7 @@ html, body, canvas {
   -moz-user-select: none;
   user-select: none;
   overflow: hidden;
+  font-family: 'Roboto';
 }
 .draghint {
   display: table;
@@ -56,5 +57,5 @@ html, body, canvas {
   image-rendering: -moz-crisp-edges;          /* FF 6.0+                       */
   image-rendering: -webkit-optimize-contrast; /* Safari                        */
   image-rendering: -o-crisp-edges;            /* OS X & Windows Opera (12.02+) */
-  image-rendering: pixelated;   
+  image-rendering: pixelated;
 }

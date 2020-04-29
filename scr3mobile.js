@@ -13013,6 +13013,37 @@ System.registerDynamic('index.coffee!github:forresto/system-coffee@master.js', [
   window.pressButtonUp = function(kcode) {
     onkey(kcode, 'keyup');
   };
+  window.confirmation = function(){
+    var typed = prompt("This will delete ALL progress for this game. This cannot be undone. Type \"I Understand\" to continue.");
+    if(typed === "I Understand"){
+      removeSave();
+      reset();
+      return true;
+    } else {
+      alert("Save deletion cancelled.");
+      return false;
+    }
+  };
+  let quickBlob;
+  window.quickSave = function(){
+    quickBlob = new Blob([new Uint8Array(retro.core.serialize())], {
+      type: 'application/octet-binary'
+    });
+  };
+  window.quickLoad = function(){
+    var file, reader;
+    file = quickBlob;
+    if (!file instanceof Blob) {
+      return;
+    }
+    draghint.classList.add('hidden');
+    reader = new FileReader();
+    reader.addEventListener('load', function (event) {
+      retro.core.unserialize(new Uint8Array(reader.result));
+      return;
+    });
+    return reader.readAsArrayBuffer(file);
+  }
 });
 
 //# sourceMappingURL=build.js.map

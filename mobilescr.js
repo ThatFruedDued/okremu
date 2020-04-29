@@ -9,13 +9,13 @@ function setFrameSize() {
   for(var i = 0; i < document.getElementsByClassName('button').length; i++){
     switch(document.getElementsByClassName('button')[i].id){
       case "shoulder":
-        document.getElementsByClassName('button')[i].style.height = "75px";
+        document.getElementsByClassName('button')[i].style.height = "100px";
         document.getElementsByClassName('button')[i].style.width = width + "px";
         document.getElementsByClassName('button')[i].style.display = "block";
         break;
       case "dpadabxy":
         document.getElementsByClassName('button')[i].style.position = "absolute";
-        document.getElementsByClassName('button')[i].style.top = (height * 1.5) + "px";
+        document.getElementsByClassName('button')[i].style.top = (height * 1.75) + "px";
         document.getElementsByClassName('button')[i].style.height = "150px";
         document.getElementsByClassName('button')[i].style.width = width + "px";
         document.getElementsByClassName('button')[i].style.display = "block";
@@ -40,8 +40,14 @@ function setFrameSize() {
         document.getElementsByClassName('button')[i].style.bottom = "0px";
         document.getElementsByClassName('button')[i].style.height = "50px";
         document.getElementsByClassName('button')[i].style.width = "100px";
-        document.getElementsByClassName('button')[i].style.margin = "auto";
+        document.getElementsByClassName('button')[i].style.left = "0px";
         document.getElementsByClassName('button')[i].style.display = "block";
+        break;
+      case "bpause":
+        document.getElementsByClassName('button')[i].style.position = "absolute";
+        document.getElementsByClassName('button')[i].style.bottom = "0px";
+        document.getElementsByClassName('button')[i].style.height = "50px";
+        document.getElementsByClassName('button')[i].style.right = "0px";
         break;
       case "bup":
         document.getElementsByClassName('button')[i].style.position = "absolute";
@@ -93,13 +99,13 @@ function setFrameSize() {
         break;
       case "bl":
         document.getElementsByClassName('button')[i].style.position = "absolute";
-        document.getElementsByClassName('button')[i].style.left = "0px";
-        document.getElementsByClassName('button')[i].style.height = "75px";
+        document.getElementsByClassName('button')[i].style.left = "10px";
+        document.getElementsByClassName('button')[i].style.height = "100px";
         break;
       case "br":
         document.getElementsByClassName('button')[i].style.position = "absolute";
-        document.getElementsByClassName('button')[i].style.right = "0px";
-        document.getElementsByClassName('button')[i].style.height = "75px";
+        document.getElementsByClassName('button')[i].style.right = "10px";
+        document.getElementsByClassName('button')[i].style.height = "100px";
         break;
       case "bselect":
         document.getElementsByClassName('button')[i].style.position = "absolute";
@@ -339,5 +345,78 @@ function touchHandler(){
   });
 }
 
-setInterval(touchHandler, 0);
-setInterval(setFrameSize, 100);
+let thInterval = setInterval(touchHandler, 0);
+let sfsInterval = setInterval(setFrameSize, 100);
+
+window.pauseGame = function(){
+  clearInterval(thInterval);
+  clearInterval(sfsInterval);
+  document.getElementById("buttons").style.display = "none";
+  document.getElementById("frame").style.display = "none";
+  document.getElementById("pausemenu").style.display = "block";
+  document.getElementById("frame").contentWindow.retro.stop();
+};
+
+window.resumeGame = function(){
+  thInterval = setInterval(touchHandler, 0);
+  sfsInterval = setInterval(setFrameSize, 100);
+  document.getElementById("buttons").style.display = "block";
+  document.getElementById("frame").style.display = "block";
+  document.getElementById("pausemenu").style.display = "none";
+  document.getElementById("frame").contentWindow.retro.start();
+};
+
+window.reset = function(){
+  document.getElementById("frame").contentWindow.reset();
+  resumeGame();
+};
+
+window.save = function(){
+  document.getElementById("frame").contentWindow.save();
+  resumeGame();
+};
+
+window.load = function(){
+  document.getElementById("frame").contentWindow.loadfunc();
+  resumeGame();
+};
+
+window.deleteSave = function(){
+  var didConfirm = document.getElementById("frame").contentWindow.confirmation();
+  if(didConfirm){
+    resumeGame();
+  }
+};
+
+window.quickSave = function(){
+  document.getElementById("frame").contentWindow.quickSave();
+  resumeGame();
+};
+
+window.quickLoad = function(){
+  document.getElementById("frame").contentWindow.quickLoad();
+  resumeGame();
+};
+
+let isSwapped = false;
+
+window.swap = function(){
+  if(!isSwapped){
+    isSwapped = true;
+    document.getElementById('bb').style.bottom = null;
+    document.getElementById('bb').style.top = "0px";
+    document.getElementById('bb').style.left = "50px";
+    document.getElementById('bx').style.top = null;
+    document.getElementById('bx').style.bottom = "0px";
+    document.getElementById('bx').style.left = "50px";
+  } else {
+    isSwapped = false;
+    document.getElementById('bx').style.bottom = null;
+    document.getElementById('bx').style.top = "0px";
+    document.getElementById('bx').style.left = "50px";
+    document.getElementById('bb').style.top = null;
+    document.getElementById('bb').style.bottom = "0px";
+    document.getElementById('bb').style.left = "50px";
+  }
+  resumeGame();
+};
