@@ -74,10 +74,12 @@ function setFrameSize() {
         document.getElementsByClassName('button')[i].style.height = "50px";
         break;
       case "bb":
-        document.getElementsByClassName('button')[i].style.position = "absolute";
-        document.getElementsByClassName('button')[i].style.height = "50px";
-        document.getElementsByClassName('button')[i].style.bottom = "0px";
-        document.getElementsByClassName('button')[i].style.left = "50px";
+        if(!isSwapped){
+          document.getElementsByClassName('button')[i].style.position = "absolute";
+          document.getElementsByClassName('button')[i].style.height = "50px";
+          document.getElementsByClassName('button')[i].style.bottom = "0px";
+          document.getElementsByClassName('button')[i].style.left = "50px";
+        }
         break;
       case "ba":
         document.getElementsByClassName('button')[i].style.position = "absolute";
@@ -86,10 +88,12 @@ function setFrameSize() {
         document.getElementsByClassName('button')[i].style.height = "50px";
         break;
       case "bx":
-        document.getElementsByClassName('button')[i].style.position = "absolute";
-        document.getElementsByClassName('button')[i].style.top = "0px";
-        document.getElementsByClassName('button')[i].style.height = "50px";
-        document.getElementsByClassName('button')[i].style.left = "50px";
+        if(!isSwapped){
+          document.getElementsByClassName('button')[i].style.position = "absolute";
+          document.getElementsByClassName('button')[i].style.top = "0px";
+          document.getElementsByClassName('button')[i].style.height = "50px";
+          document.getElementsByClassName('button')[i].style.left = "50px";
+        }
         break;
       case "by":
         document.getElementsByClassName('button')[i].style.position = "absolute";
