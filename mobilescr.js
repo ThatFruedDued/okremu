@@ -45,9 +45,9 @@ function setFrameSize() {
         break;
       case "bpause":
         document.getElementsByClassName('button')[i].style.position = "absolute";
-        document.getElementsByClassName('button')[i].style.bottom = "0px";
+        document.getElementsByClassName('button')[i].style.bottom = "10px";
         document.getElementsByClassName('button')[i].style.height = "50px";
-        document.getElementsByClassName('button')[i].style.right = "0px";
+        document.getElementsByClassName('button')[i].style.right = "10px";
         break;
       case "bup":
         document.getElementsByClassName('button')[i].style.position = "absolute";
@@ -79,6 +79,11 @@ function setFrameSize() {
           document.getElementsByClassName('button')[i].style.height = "50px";
           document.getElementsByClassName('button')[i].style.bottom = "0px";
           document.getElementsByClassName('button')[i].style.left = "50px";
+        } else {
+          document.getElementsByClassName('button')[i].style.position = "absolute";
+          document.getElementsByClassName('button')[i].style.top = "0px";
+          document.getElementsByClassName('button')[i].style.height = "50px";
+          document.getElementsByClassName('button')[i].style.left = "50px";
         }
         break;
       case "ba":
@@ -92,6 +97,11 @@ function setFrameSize() {
           document.getElementsByClassName('button')[i].style.position = "absolute";
           document.getElementsByClassName('button')[i].style.top = "0px";
           document.getElementsByClassName('button')[i].style.height = "50px";
+          document.getElementsByClassName('button')[i].style.left = "50px";
+        } else {
+          document.getElementsByClassName('button')[i].style.position = "absolute";
+          document.getElementsByClassName('button')[i].style.height = "50px";
+          document.getElementsByClassName('button')[i].style.bottom = "0px";
           document.getElementsByClassName('button')[i].style.left = "50px";
         }
         break;
@@ -120,6 +130,85 @@ function setFrameSize() {
         document.getElementsByClassName('button')[i].style.position = "absolute";
         document.getElementsByClassName('button')[i].style.right = "0px";
         document.getElementsByClassName('button')[i].style.height = "50px";
+        break;
+      case "bulab":
+        document.getElementsByClassName('button')[i].style.position = "absolute";
+        document.getElementsByClassName('button')[i].style.right = "0px";
+        if(!isSwapped){
+          document.getElementsByClassName('button')[i].style.bottom = "0px";
+        } else {
+          document.getElementsByClassName('button')[i].style.top = "0px";
+        }
+        document.getElementsByClassName('button')[i].style.height = "75px";
+        document.getElementsByClassName('button')[i].style.zIndex = "-1";
+        break;
+      case "bulax":
+        document.getElementsByClassName('button')[i].style.position = "absolute";
+        document.getElementsByClassName('button')[i].style.right = "0px";
+        if(isSwapped){
+          document.getElementsByClassName('button')[i].style.bottom = "0px";
+        } else {
+          document.getElementsByClassName('button')[i].style.top = "0px";
+        }
+        document.getElementsByClassName('button')[i].style.height = "75px";
+        document.getElementsByClassName('button')[i].style.zIndex = "-1";
+        break;
+      case "bulxy":
+        document.getElementsByClassName('button')[i].style.position = "absolute";
+        document.getElementsByClassName('button')[i].style.left = "0px";
+        if(isSwapped){
+          document.getElementsByClassName('button')[i].style.bottom = "0px";
+        } else {
+          document.getElementsByClassName('button')[i].style.top = "0px";
+        }
+        document.getElementsByClassName('button')[i].style.height = "75px";
+        document.getElementsByClassName('button')[i].style.zIndex = "-1";
+        break;
+      case "bulby":
+        document.getElementsByClassName('button')[i].style.position = "absolute";
+        document.getElementsByClassName('button')[i].style.left = "0px";
+        if(!isSwapped){
+          document.getElementsByClassName('button')[i].style.bottom = "0px";
+        } else {
+          document.getElementsByClassName('button')[i].style.top = "0px";
+        }
+        document.getElementsByClassName('button')[i].style.height = "75px";
+        document.getElementsByClassName('button')[i].style.zIndex = "-1";
+        break;
+      case "buldownright":
+        document.getElementsByClassName('button')[i].style.position = "absolute";
+        document.getElementsByClassName('button')[i].style.right = "0px";
+        document.getElementsByClassName('button')[i].style.bottom = "0px";
+        document.getElementsByClassName('button')[i].style.height = "75px";
+        document.getElementsByClassName('button')[i].style.zIndex = "-1";
+        break;
+      case "buldownright":
+        document.getElementsByClassName('button')[i].style.position = "absolute";
+        document.getElementsByClassName('button')[i].style.right = "0px";
+        document.getElementsByClassName('button')[i].style.bottom = "0px";
+        document.getElementsByClassName('button')[i].style.height = "75px";
+        document.getElementsByClassName('button')[i].style.zIndex = "-1";
+        break;
+      case "buldownleft":
+        document.getElementsByClassName('button')[i].style.position = "absolute";
+        document.getElementsByClassName('button')[i].style.left = "0px";
+        document.getElementsByClassName('button')[i].style.bottom = "0px";
+        document.getElementsByClassName('button')[i].style.height = "75px";
+        document.getElementsByClassName('button')[i].style.zIndex = "-1";
+        break;
+      case "bulupright":
+        document.getElementsByClassName('button')[i].style.position = "absolute";
+        document.getElementsByClassName('button')[i].style.right = "0px";
+        document.getElementsByClassName('button')[i].style.top = "0px";
+        document.getElementsByClassName('button')[i].style.height = "75px";
+        document.getElementsByClassName('button')[i].style.zIndex = "-1";
+        break;
+      case "bulupleft":
+        document.getElementsByClassName('button')[i].style.position = "absolute";
+        document.getElementsByClassName('button')[i].style.left = "0px";
+        document.getElementsByClassName('button')[i].style.top = "0px";
+        document.getElementsByClassName('button')[i].style.height = "75px";
+        document.getElementsByClassName('button')[i].style.zIndex = "-1";
         break;
     }
   }
@@ -181,6 +270,22 @@ function tEnd(touch){
     case "bleft":
       document.getElementById('frame').contentWindow.pressButtonUp(37);
       break;
+    case "buldownright":
+      document.getElementById('frame').contentWindow.pressButtonUp(40);
+      document.getElementById('frame').contentWindow.pressButtonUp(39);
+      break;
+    case "buldownleft":
+      document.getElementById('frame').contentWindow.pressButtonUp(40);
+      document.getElementById('frame').contentWindow.pressButtonUp(37);
+      break;
+    case "bulupright":
+      document.getElementById('frame').contentWindow.pressButtonUp(38);
+      document.getElementById('frame').contentWindow.pressButtonUp(39);
+      break;
+    case "bulupleft":
+      document.getElementById('frame').contentWindow.pressButtonUp(38);
+      document.getElementById('frame').contentWindow.pressButtonUp(37);
+      break;
     case "bb":
       document.getElementById('frame').contentWindow.pressButtonUp(90);
       break;
@@ -192,6 +297,22 @@ function tEnd(touch){
       break;
     case "by":
       document.getElementById('frame').contentWindow.pressButtonUp(89);
+      break;
+    case "bulab":
+      document.getElementById('frame').contentWindow.pressButtonUp(32);
+      document.getElementById('frame').contentWindow.pressButtonUp(90);
+      break;
+    case "bulax":
+      document.getElementById('frame').contentWindow.pressButtonUp(32);
+      document.getElementById('frame').contentWindow.pressButtonUp(88);
+      break;
+    case "bulxy":
+      document.getElementById('frame').contentWindow.pressButtonUp(88);
+      document.getElementById('frame').contentWindow.pressButtonUp(89);
+      break;
+    case "bulby":
+      document.getElementById('frame').contentWindow.pressButtonUp(90);
+      document.getElementById('frame').contentWindow.pressButtonUp(37);
       break;
     case "bl":
       document.getElementById('frame').contentWindow.pressButtonUp(76);
@@ -241,6 +362,22 @@ function touchHandler(){
           case "bleft":
             document.getElementById('frame').contentWindow.pressButtonUp(37);
             break;
+          case "buldownright":
+            document.getElementById('frame').contentWindow.pressButtonUp(40);
+            document.getElementById('frame').contentWindow.pressButtonUp(39);
+            break;
+          case "buldownleft":
+            document.getElementById('frame').contentWindow.pressButtonUp(40);
+            document.getElementById('frame').contentWindow.pressButtonUp(37);
+            break;
+          case "bulupright":
+            document.getElementById('frame').contentWindow.pressButtonUp(38);
+            document.getElementById('frame').contentWindow.pressButtonUp(39);
+            break;
+          case "bulupleft":
+            document.getElementById('frame').contentWindow.pressButtonUp(38);
+            document.getElementById('frame').contentWindow.pressButtonUp(37);
+            break;
           case "bb":
             document.getElementById('frame').contentWindow.pressButtonUp(90);
             break;
@@ -252,6 +389,22 @@ function touchHandler(){
             break;
           case "by":
             document.getElementById('frame').contentWindow.pressButtonUp(89);
+            break;
+          case "bulab":
+            document.getElementById('frame').contentWindow.pressButtonUp(32);
+            document.getElementById('frame').contentWindow.pressButtonUp(90);
+            break;
+          case "bulax":
+            document.getElementById('frame').contentWindow.pressButtonUp(32);
+            document.getElementById('frame').contentWindow.pressButtonUp(88);
+            break;
+          case "bulxy":
+            document.getElementById('frame').contentWindow.pressButtonUp(88);
+            document.getElementById('frame').contentWindow.pressButtonUp(89);
+            break;
+          case "bulby":
+            document.getElementById('frame').contentWindow.pressButtonUp(90);
+            document.getElementById('frame').contentWindow.pressButtonUp(37);
             break;
           case "bl":
             document.getElementById('frame').contentWindow.pressButtonUp(76);
@@ -279,6 +432,22 @@ function touchHandler(){
           case "bleft":
             document.getElementById('frame').contentWindow.pressButtonDown(37);
             break;
+          case "buldownright":
+            document.getElementById('frame').contentWindow.pressButtonDown(40);
+            document.getElementById('frame').contentWindow.pressButtonDown(39);
+            break;
+          case "buldownleft":
+            document.getElementById('frame').contentWindow.pressButtonDown(40);
+            document.getElementById('frame').contentWindow.pressButtonDown(37);
+            break;
+          case "bulupright":
+            document.getElementById('frame').contentWindow.pressButtonDown(38);
+            document.getElementById('frame').contentWindow.pressButtonDown(39);
+            break;
+          case "bulupleft":
+            document.getElementById('frame').contentWindow.pressButtonDown(38);
+            document.getElementById('frame').contentWindow.pressButtonDown(37);
+            break;
           case "bb":
             document.getElementById('frame').contentWindow.pressButtonDown(90);
             break;
@@ -290,6 +459,22 @@ function touchHandler(){
             break;
           case "by":
             document.getElementById('frame').contentWindow.pressButtonDown(89);
+            break;
+          case "bulab":
+            document.getElementById('frame').contentWindow.pressButtonDown(32);
+            document.getElementById('frame').contentWindow.pressButtonDown(90);
+            break;
+          case "bulax":
+            document.getElementById('frame').contentWindow.pressButtonDown(32);
+            document.getElementById('frame').contentWindow.pressButtonDown(88);
+            break;
+          case "bulxy":
+            document.getElementById('frame').contentWindow.pressButtonDown(88);
+            document.getElementById('frame').contentWindow.pressButtonDown(89);
+            break;
+          case "bulby":
+            document.getElementById('frame').contentWindow.pressButtonDown(90);
+            document.getElementById('frame').contentWindow.pressButtonDown(37);
             break;
           case "bl":
             document.getElementById('frame').contentWindow.pressButtonDown(76);
@@ -320,6 +505,22 @@ function touchHandler(){
         case "bleft":
           document.getElementById('frame').contentWindow.pressButtonDown(37);
           break;
+        case "buldownright":
+          document.getElementById('frame').contentWindow.pressButtonDown(40);
+          document.getElementById('frame').contentWindow.pressButtonDown(39);
+          break;
+        case "buldownleft":
+          document.getElementById('frame').contentWindow.pressButtonDown(40);
+          document.getElementById('frame').contentWindow.pressButtonDown(37);
+          break;
+        case "bulupright":
+          document.getElementById('frame').contentWindow.pressButtonDown(38);
+          document.getElementById('frame').contentWindow.pressButtonDown(39);
+          break;
+        case "bulupleft":
+          document.getElementById('frame').contentWindow.pressButtonDown(38);
+          document.getElementById('frame').contentWindow.pressButtonDown(37);
+          break;
         case "bb":
           document.getElementById('frame').contentWindow.pressButtonDown(90);
           break;
@@ -331,6 +532,22 @@ function touchHandler(){
           break;
         case "by":
           document.getElementById('frame').contentWindow.pressButtonDown(89);
+          break;
+        case "bulab":
+          document.getElementById('frame').contentWindow.pressButtonDown(32);
+          document.getElementById('frame').contentWindow.pressButtonDown(90);
+          break;
+        case "bulax":
+          document.getElementById('frame').contentWindow.pressButtonDown(32);
+          document.getElementById('frame').contentWindow.pressButtonDown(88);
+          break;
+        case "bulxy":
+          document.getElementById('frame').contentWindow.pressButtonDown(88);
+          document.getElementById('frame').contentWindow.pressButtonDown(89);
+          break;
+        case "bulby":
+          document.getElementById('frame').contentWindow.pressButtonDown(90);
+          document.getElementById('frame').contentWindow.pressButtonDown(37);
           break;
         case "bl":
           document.getElementById('frame').contentWindow.pressButtonDown(76);
@@ -357,6 +574,7 @@ window.pauseGame = function(){
   clearInterval(sfsInterval);
   document.getElementById("buttons").style.display = "none";
   document.getElementById("frame").style.display = "none";
+  document.getElementById("frame").contentWindow.retro.classList.toggle('hidden');
   document.getElementById("pausemenu").style.display = "block";
   document.getElementById("frame").contentWindow.retro.stop();
 };
@@ -366,6 +584,7 @@ window.resumeGame = function(){
   sfsInterval = setInterval(setFrameSize, 100);
   document.getElementById("buttons").style.display = "block";
   document.getElementById("frame").style.display = "block";
+  document.getElementById("frame").contentWindow.retro.classList.toggle('hidden');
   document.getElementById("pausemenu").style.display = "none";
   document.getElementById("frame").contentWindow.retro.start();
 };
