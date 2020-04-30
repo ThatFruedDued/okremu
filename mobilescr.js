@@ -25,6 +25,7 @@ function setFrameSize() {
         document.getElementsByClassName('button')[i].style.left = "10px";
         document.getElementsByClassName('button')[i].style.height = "150px";
         document.getElementsByClassName('button')[i].style.width = "150px";
+        document.getElementsByClassName('button')[i].style.zIndex = -2;
         document.getElementsByClassName('button')[i].style.display = "block";
         break;
       case "abxy":
@@ -33,6 +34,7 @@ function setFrameSize() {
         document.getElementsByClassName('button')[i].style.height = "150px";
         document.getElementsByClassName('button')[i].style.width = "150px";
         document.getElementsByClassName('button')[i].style.float = "left";
+        document.getElementsByClassName('button')[i].style.zIndex = -2;
         document.getElementsByClassName('button')[i].style.display = "block";
         break;
       case "selst":
