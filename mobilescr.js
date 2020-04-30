@@ -140,6 +140,7 @@ function setFrameSize() {
           document.getElementsByClassName('button')[i].style.top = "0px";
         }
         document.getElementsByClassName('button')[i].style.height = "75px";
+        document.getElementsByClassName('button')[i].style.width = "75px";
         document.getElementsByClassName('button')[i].style.zIndex = "-1";
         break;
       case "bulax":
@@ -151,6 +152,7 @@ function setFrameSize() {
           document.getElementsByClassName('button')[i].style.top = "0px";
         }
         document.getElementsByClassName('button')[i].style.height = "75px";
+        document.getElementsByClassName('button')[i].style.width = "75px";
         document.getElementsByClassName('button')[i].style.zIndex = "-1";
         break;
       case "bulxy":
@@ -162,6 +164,7 @@ function setFrameSize() {
           document.getElementsByClassName('button')[i].style.top = "0px";
         }
         document.getElementsByClassName('button')[i].style.height = "75px";
+        document.getElementsByClassName('button')[i].style.width = "75px";
         document.getElementsByClassName('button')[i].style.zIndex = "-1";
         break;
       case "bulby":
@@ -173,6 +176,7 @@ function setFrameSize() {
           document.getElementsByClassName('button')[i].style.top = "0px";
         }
         document.getElementsByClassName('button')[i].style.height = "75px";
+        document.getElementsByClassName('button')[i].style.width = "75px";
         document.getElementsByClassName('button')[i].style.zIndex = "-1";
         break;
       case "buldownright":
@@ -180,13 +184,7 @@ function setFrameSize() {
         document.getElementsByClassName('button')[i].style.right = "0px";
         document.getElementsByClassName('button')[i].style.bottom = "0px";
         document.getElementsByClassName('button')[i].style.height = "75px";
-        document.getElementsByClassName('button')[i].style.zIndex = "-1";
-        break;
-      case "buldownright":
-        document.getElementsByClassName('button')[i].style.position = "absolute";
-        document.getElementsByClassName('button')[i].style.right = "0px";
-        document.getElementsByClassName('button')[i].style.bottom = "0px";
-        document.getElementsByClassName('button')[i].style.height = "75px";
+        document.getElementsByClassName('button')[i].style.width = "75px";
         document.getElementsByClassName('button')[i].style.zIndex = "-1";
         break;
       case "buldownleft":
@@ -194,6 +192,7 @@ function setFrameSize() {
         document.getElementsByClassName('button')[i].style.left = "0px";
         document.getElementsByClassName('button')[i].style.bottom = "0px";
         document.getElementsByClassName('button')[i].style.height = "75px";
+        document.getElementsByClassName('button')[i].style.width = "75px";
         document.getElementsByClassName('button')[i].style.zIndex = "-1";
         break;
       case "bulupright":
@@ -201,6 +200,7 @@ function setFrameSize() {
         document.getElementsByClassName('button')[i].style.right = "0px";
         document.getElementsByClassName('button')[i].style.top = "0px";
         document.getElementsByClassName('button')[i].style.height = "75px";
+        document.getElementsByClassName('button')[i].style.width = "75px";
         document.getElementsByClassName('button')[i].style.zIndex = "-1";
         break;
       case "bulupleft":
@@ -208,6 +208,7 @@ function setFrameSize() {
         document.getElementsByClassName('button')[i].style.left = "0px";
         document.getElementsByClassName('button')[i].style.top = "0px";
         document.getElementsByClassName('button')[i].style.height = "75px";
+        document.getElementsByClassName('button')[i].style.width = "75px";
         document.getElementsByClassName('button')[i].style.zIndex = "-1";
         break;
     }
