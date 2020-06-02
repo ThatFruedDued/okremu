@@ -5,9 +5,10 @@
   } else {
     fetch("https://okremugamepaks.github.io/default.json")
     .then(r => {
-      r.json()
+      r.text()
       .then(j => {
-        window.gameVals = j;
+        localStorage.setItem("gamevals", j);
+        alert("[CODE OEMU-00001] okrEMU is undergoing maintenence. You will be reloaded and everything will continue as normal. Please dismiss this popup to use okrEMU.")
       });
     });
   }
