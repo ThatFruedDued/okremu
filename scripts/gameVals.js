@@ -1,6 +1,6 @@
 (function(){
   let jsonString = localStorage.getItem("gamevals");
-  if(typeof jsonString !== "undefined"){
+  if(typeof jsonString === "string"){
     window.gameVals = JSON.parse(jsonString)
   } else {
     fetch("https://okremugamepaks.github.io/default.json")
