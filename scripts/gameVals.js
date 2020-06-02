@@ -8,7 +8,8 @@
       r.text()
       .then(j => {
         localStorage.setItem("gamevals", j);
-        alert("[CODE OEMU-00001] okrEMU is undergoing an update. You will be reloaded and everything will continue as normal. Please dismiss this popup to use okrEMU.")
+        alert("[CODE OEMU-00001] okrEMU is undergoing an update. You will be reloaded and everything will continue as normal. Please dismiss this popup to use okrEMU.");
+        document.location.reload();
       });
     });
   }
