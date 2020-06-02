@@ -1,143 +1,146 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>okrEMU</title>
-    <!-- android -->
-    <meta name="mobile-web-app-capable" content="yes">
-    <!-- iOS -->
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="translucent-black">
-    <meta name="apple-mobile-web-app-title" content="okrEMU">
-    <meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
-    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-    <link rel='stylesheet' href='css/styledselect.css'>
-    <link rel='stylesheet' href='css/index-main.css'>
-  </head>
-  <body>
-    <div id='titlebar'>
-      <h2 style='display: inline-block; font-size: 75px; margin-bottom: -60px;'>okrEMU</h2>
-      <p style='display: inline-block;'>
-        Subdomain from <a href='https://freedns.afraid.org'>FreeDNS</a><br>
-        Base emulator by <a href='https://matthewbauer.us'>Matthew Bauer</a><br>
-        <a href='options.html'>Options</a>
-      </p>
-    </div>
-    <div class="custom-select" style="width: 25%; display: inline-block;">
-      <select id='chooseconsole'>
-        <option value="0" selected="selected">All</option>
-        <option value="1">NES</option>
-        <option value="2">SNES</option>
-        <option value="3">GBA</option>
-      </select>
-    </div>
-    <input type="text" id="search" name="search-okremu" placeholder='Search...' style='display: inline-block;'>
-    <br><br>
-    <div id='nes'></div>
-    <div id='snes'></div>
-    <div id='gba'></div>
-    <script src='scripts/fastclick.js'></script>
-    <script src='scripts/styledselect.js'></script>
-    <script src='scripts/gameVals.js'></script>
-    <script>
-    window.addEventListener("touchstart", e => {
-      if(e.touches.length > 1) {
-        e.preventDefault();
-      } else {
-        return;
-      }
-    }, {passive: false});
+<head>
+  <title>okrEMU</title>
+  <!-- android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <!-- iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="translucent-black">
+  <meta name="apple-mobile-web-app-title" content="okrEMU">
+  <meta name="viewport" content="width=device-width,height=device-height,user-scalable=no,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+  <link rel='stylesheet' href='css/styledselect.css'>
+  <link rel='stylesheet' href='css/index-main.css'>
+</head>
+<body>
+  <div id='titlebar'>
+    <h2 style='display: inline-block; font-size: 75px; margin-bottom: -60px;'>okrEMU</h2>
+    <p style='display: inline-block;'>
+      Subdomain from <a href='https://freedns.afraid.org'>FreeDNS</a><br>
+      Base emulator by <a href='https://matthewbauer.us'>Matthew Bauer</a><br>
+      <a href='options.html'>Options</a>
+    </p>
+  </div>
+  <div class="custom-select" style="width: 25%; display: inline-block;">
+    <select id='chooseconsole'>
+      <option value="0" selected="selected">All</option>
+      <option value="1">NES</option>
+      <option value="2">SNES</option>
+      <option value="3">GBA</option>
+    </select>
+  </div>
+  <input type="text" id="search" name="search-okremu" placeholder='Search...' style='display: inline-block;' autocomplete="off">
+  <br><br>
+  <div id='nes'></div>
+  <div id='snes'></div>
+  <div id='gba'></div>
+  <script src='scripts/fastclick.js'></script>
+  <script src='scripts/styledselect.js'></script>
+  <script src='scripts/gameVals.js'></script>
+  <script>
+  window.addEventListener("touchstart", e => {
+    if(e.touches.length > 1) {
+      e.preventDefault();
+    } else {
+      return;
+    }
+  }, {passive: false});
 
-    window.addEventListener("touchmove", e => {
-      if(e.touches.length > 1) {
-        e.preventDefault();
-      } else {
-        return;
-      }
-    }, {passive: false});
+  window.addEventListener("touchmove", e => {
+    if(e.touches.length > 1) {
+      e.preventDefault();
+    } else {
+      return;
+    }
+  }, {passive: false});
 
-    window.addEventListener("touchend", e => {
-      if(e.touches.length > 1) {
-        e.preventDefault();
-      } else {
-        return;
+  window.addEventListener("touchend", e => {
+    if(e.touches.length > 1) {
+      e.preventDefault();
+    } else {
+      return;
+    }
+  }, {passive: false});
+
+  let divids = ["nes", "snes", "gba"];
+
+  gameVals.sort(function(a, b){
+    var intArray = [a[4], b[4]]
+    intArray.sort();
+    if(intArray.join('\\') === [a[4], b[4]].join('\\')){
+      return -1;
+    } else {
+      return 1;
+    }
+  });
+  gameVals.forEach(setUpImgs);
+  setInterval(function(){
+    document.getElementsByTagName('select')[0].dispatchEvent(new Event('change'));
+    document.getElementsByClassName('select-selected')[0].innerHTML = document.getElementById('chooseconsole').getElementsByTagName('option')[document.getElementById('chooseconsole').selectedIndex].innerHTML;
+    if(document.getElementById('search').value !== '' && document.getElementById('search').value !== null && document.getElementById('search').value !== undefined){
+      if(document.getElementById('search').value.toLowerCase() === '/dev'){
+        document.getElementById('search').value = '';
+        localStorage.setItem('devdata', prompt('devdata:'));
       }
-    }, {passive: false});
-      gameVals.sort(function(a, b){
-        var intArray = [a[4], b[4]]
-        intArray.sort();
-        if(intArray.join('\\') === [a[4], b[4]].join('\\')){
-          return -1;
+      for(var i = 0; i < gameVals.length; i++){
+        if(gameVals[i][4].toLowerCase().indexOf(document.getElementById('search').value.toLowerCase()) === -1){
+          document.getElementById(gameVals[i][0]).style.display = 'none';
         } else {
-          return 1;
+          document.getElementById(gameVals[i][0]).style.display = 'inline-block';
         }
-      });
-      gameVals.forEach(setUpImgs);
-      setInterval(function(){
-        document.getElementsByTagName('select')[0].dispatchEvent(new Event('change'));
-        document.getElementsByClassName('select-selected')[0].innerHTML = document.getElementById('chooseconsole').getElementsByTagName('option')[document.getElementById('chooseconsole').selectedIndex].innerHTML;
-        if(document.getElementById('search').value !== '' && document.getElementById('search').value !== null && document.getElementById('search').value !== undefined){
-          if(document.getElementById('search').value.toLowerCase() === '/dev'){
-            document.getElementById('search').value = '';
-            localStorage.setItem('devdata', prompt('devdata:'));
-          }
-          for(var i = 0; i < gameVals.length; i++){
-            if(gameVals[i][4].toLowerCase().indexOf(document.getElementById('search').value.toLowerCase()) === -1){
-              document.getElementById(gameVals[i][0]).style.display = 'none';
-            } else {
-              document.getElementById(gameVals[i][0]).style.display = 'inline-block';
-            }
-          }
-        } else {
-          for(var i = 0; i < gameVals.length; i++){
-            document.getElementById(gameVals[i][0]).style.display = 'inline-block';
-          }
-        }
-      }, 0);
-      document.getElementById('chooseconsole').addEventListener('change', (e) => {
-        var selval = e.target.value;
-        if(selval === '0'){
-          for(var i = 0; i < divids.length; i++){
-            document.getElementById(divids[i]).style.display = 'block';
-          }
-        } else if(selval === '1'){
-          for(var i = 0; i < divids.length; i++){
-            if(divids[i] === 'nes'){
-              document.getElementById(divids[i]).style.display = 'block';
-            } else {
-              document.getElementById(divids[i]).style.display = 'none';
-            }
-          }
-        } else if(selval === '2'){
-          for(var i = 0; i < divids.length; i++){
-            if(divids[i] === 'snes'){
-              document.getElementById(divids[i]).style.display = 'block';
-            } else {
-              document.getElementById(divids[i]).style.display = 'none';
-            }
-          }
-        } else if(selval === '3'){
-          for(var i = 0; i < divids.length; i++){
-            if(divids[i] === 'gba'){
-              document.getElementById(divids[i]).style.display = 'block';
-            } else {
-              document.getElementById(divids[i]).style.display = 'none';
-            }
-          }
-        }
-      });
-      function setUpImgs(item, index){
-        var gameImg = document.createElement('IMG');
-        gameImg.id = item[0];
-        gameImg.src = item[3];
-        gameImg.height = '256';
-        gameImg.style.cursor = 'pointer';
-        document.getElementById(item[2]).appendChild(gameImg);
-        document.getElementById(item[0]).addEventListener("click", function(){
-          localStorage.setItem('gameid', item[0]);
-          localStorage.setItem('gameext', item[1]);
-          document.location.href = 'emulator.html';
-        });
       }
-    </script>
-  </body>
+    } else {
+      for(var i = 0; i < gameVals.length; i++){
+        document.getElementById(gameVals[i][0]).style.display = 'inline-block';
+      }
+    }
+  }, 0);
+  document.getElementById('chooseconsole').addEventListener('change', (e) => {
+    var selval = e.target.value;
+    if(selval === '0'){
+      for(var i = 0; i < divids.length; i++){
+        document.getElementById(divids[i]).style.display = 'block';
+      }
+    } else if(selval === '1'){
+      for(var i = 0; i < divids.length; i++){
+        if(divids[i] === 'nes'){
+          document.getElementById(divids[i]).style.display = 'block';
+        } else {
+          document.getElementById(divids[i]).style.display = 'none';
+        }
+      }
+    } else if(selval === '2'){
+      for(var i = 0; i < divids.length; i++){
+        if(divids[i] === 'snes'){
+          document.getElementById(divids[i]).style.display = 'block';
+        } else {
+          document.getElementById(divids[i]).style.display = 'none';
+        }
+      }
+    } else if(selval === '3'){
+      for(var i = 0; i < divids.length; i++){
+        if(divids[i] === 'gba'){
+          document.getElementById(divids[i]).style.display = 'block';
+        } else {
+          document.getElementById(divids[i]).style.display = 'none';
+        }
+      }
+    }
+  });
+  function setUpImgs(item, index){
+    var gameImg = document.createElement('IMG');
+    gameImg.id = item[0];
+    gameImg.src = item[3];
+    gameImg.height = '256';
+    gameImg.style.cursor = 'pointer';
+    document.getElementById(item[2]).appendChild(gameImg);
+    document.getElementById(item[0]).addEventListener("click", function(){
+      localStorage.setItem('gameid', item[0]);
+      localStorage.setItem('gameext', item[1]);
+      document.location.href = 'emulator.html';
+    });
+  }
+  </script>
+</body>
 </html>
