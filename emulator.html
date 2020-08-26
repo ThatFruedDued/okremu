@@ -66,9 +66,6 @@
     <script src="localForage/dist/localforage.js"></script>
     <script>System.import('./index.coffee!')</script>
     <script>
-    if(navigator.userAgent.includes('Mobile') || navigator.userAgent.includes('Opera Mini') || navigator.userAgent.includes('Opera Mobi')) {
-      document.location.href = 'mobile.html';
-    }
     window.addEventListener('keydown', window.keydownlistener);
     window.addEventListener('keyup', window.keyuplistener);
     async function execution(id, ext){
