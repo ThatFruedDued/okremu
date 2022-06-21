@@ -35,7 +35,7 @@
     "bundle-collapser": "^1.2.1",
     "cors": "^2.3.1",
     "eslint-config-prettier": "^2.9.0",
-    "grunt": "^0.4.2",
+    "grunt": "^1.5.2",
     "grunt-babel": "^6.0.0",
     "grunt-browserify": "^3.8.0",
     "grunt-contrib-concat": "^0.3.0",
